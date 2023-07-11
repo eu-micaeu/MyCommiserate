@@ -1,0 +1,129 @@
+.apresentao {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.apresentao .div {
+  background-color: #ffffff;
+  border: 1px none;
+  height: 1024px;
+  position: relative;
+  width: 1440px;
+}
+
+.apresentao .overlap-group {
+  height: 1024px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1340px;
+}
+
+.apresentao .copy-removebg {
+  height: 151px;
+  left: 619px;
+  object-fit: cover;
+  position: absolute;
+  top: 34px;
+  width: 201px;
+}
+
+.apresentao .rectangle {
+  background-color: #000000;
+  height: 1024px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
+
+.apresentao .rectangle-2 {
+  background-color: #000000;
+  height: 24px;
+  left: 97px;
+  position: absolute;
+  top: 198px;
+  width: 1243px;
+}
+
+.apresentao .iconamoon-profile {
+  height: 101px;
+  left: 1198px;
+  position: absolute;
+  top: 59px;
+  width: 101px;
+}
+
+.apresentao .text-wrapper {
+  color: #000000;
+  font-family: "Cascadia Mono-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 945px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 86px;
+  width: 231px;
+}
+
+.apresentao .overlap {
+  background-color: #000000;
+  border-radius: 10px;
+  height: 155px;
+  left: 134px;
+  position: absolute;
+  top: 256px;
+  width: 346px;
+}
+
+.apresentao .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Cascadia Mono-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 115px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 61px;
+  width: 121px;
+}
+
+.apresentao .ic-round-plus-wrapper {
+  background-color: #000000;
+  border-radius: 10px;
+  height: 155px;
+  left: 547px;
+  position: absolute;
+  top: 256px;
+  width: 346px;
+}
+
+.apresentao .ic-round-plus {
+  height: 102px;
+  left: 115px;
+  position: absolute;
+  top: 26px;
+  width: 110px;
+}
+
+.apresentao .wpf-qrcode {
+  height: 109px;
+  left: 305px;
+  position: absolute;
+  top: 43px;
+  width: 109px;
+}
+
+.apresentao .rectangle-3 {
+  background-color: #000000;
+  height: 1024px;
+  left: 1340px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
