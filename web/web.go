@@ -8,5 +8,5 @@ func main() {
 	fs := http.FileServer(http.Dir("public"))
 	http.Handle("/", fs)
 
-	http.ListenAndServe(":8081", nil)
+	http.ListenAndServe(":8082", nil)
 }

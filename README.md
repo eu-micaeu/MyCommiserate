@@ -29,4 +29,4 @@ Para executar o aplicativo, siga estas etapas:
    go run web.go
    ```
 
-6. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo no seguinte link: http://localhost:8081
+6. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo no seguinte link: http://localhost:8082
