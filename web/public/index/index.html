@@ -37,7 +37,7 @@
       const data = await response.json();
       if (data.message === "Login efetuado com sucesso!") {
         // Login bem-sucedido, redirecionar para outra página
-        window.location.href = "../home/index.html";
+        window.location.href = "./home/index.html";
       } else {
         // Login falhou, exibir mensagem de erro
         alert("Usuário ou senha incorretos");
