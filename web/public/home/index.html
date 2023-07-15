@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="v23_18">
+        <div class="v23_19"></div>
+        <div class="v23_20">
+            <div class="v23_21"></div>
+        </div><span class="v23_22">Olá, Usuário!</span>
+        <div class="v23_23"></div>
+        <div class="v23_24"></div>
+        <div class="v23_25"></div>
+        <div class="v23_26"></div>
+        <textarea class="v23_27" placeholder="Escreva aqui..." rows="4" cols="50" id="anotacao"></textarea>
+
+        <input type="text" class="v23_28" placeholder="Título:" id="titulo">
+        <button class="v23_29">Salvar</button>
+    </div>
+    <script>
+        document.querySelector(".v23_29").addEventListener("click", async () => {
+            const titulo = document.querySelector("#titulo").value;
+            const anotacao = document.querySelector("#anotacao").value;
+            const response = await fetch("http://localhost:8080/salvar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ titulo, anotacao })
+            });
+            const data = await response.json();
+            if (data.message === "Anotação criado com sucesso!") {
+                alert("Anotação salva");
+                document.querySelector("#titulo").value = "";
+                document.querySelector("#anotacao").value = "";
+
+
+            } else {
+                alert("Eita, deu erro");
+            }
+        });
+    </script>
+</body>
+
+</html>
