@@ -24,22 +24,7 @@
     <div class="v23_38"></div>
   </div>
   <script>
-    document.querySelector('.v23_37').addEventListener('click', () => {
-      let username = document.getElementById('usuario').value;
-      let password = document.getElementById('senha').value;
-
-      fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data.message);
-        });
-    });
+    
   </script>
 </body>
 
