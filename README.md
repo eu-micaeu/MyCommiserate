@@ -23,9 +23,10 @@ Para executar o aplicativo, siga estas etapas:
    ```
 4. O servidor será executado localmente na porta 8080.
 
+5. Agora, em outro terminal, entre no diretório web e rode o site na porta 8081 de forma local:
+   
+   ```shell
+   go run web.go
+   ```
 
-5. Agora, abra seu editor de código preferido (recomendamos o Visual Studio Code) e instale a extensão Live Server.
-
-6. No Visual Studio Code, clique com o botão direito no arquivo index.html no painel de navegação do VS Code e selecione "Open with Live Server".
-
-7. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo.
+6. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo no seguinte link: http://localhost:8081
