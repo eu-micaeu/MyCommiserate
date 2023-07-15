@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+}
+
+.v1_2 {
+    width: 100%;
+    height: 650px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.v23_30 {
+    width: 504px;
+    height: 198px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 1;
+    position: absolute;
+    top: 314px;
+    left: 468px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.v23_31,
+.v23_32 {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Cascadia Mono", monospace;
+    font-weight: normal;
+    font-size: 32px;
+    text-align: left;
+    position: absolute;
+    top: 358px;
+    left: 502px;
+}
+
+.v23_32 {
+    top: 421px;
+}
+
+
+
+.v23_33 {
+    background-image: url("../images/v23_33.png");
+}
+
+.v23_34 {
+    background-image: url("../images/v23_33.png");
+}
+
+.v23_35 {
+    width: 201px;
+    height: 151px;
+    background-image: url("../images/v23_33.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.v23_36 {
+    width: 199px;
+    height: 54px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 1;
+    position: absolute;
+    top: 540px;
+    left: 468px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.v23_37 {
+    color: rgba(255, 255, 255, 1);
+    font-family: "Cascadia Mono", monospace;
+    font-weight: normal;
+    font-size: 32px;
+    text-align: left;
+    position: absolute;
+    top: 547px;
+    left: 502px;
+    background-color: transparent;
+    border: none;
+}
+
+.v23_38 {
+    width: 100%;
+    height: 24px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 1;
+    position: absolute;
+    top: 208px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.v27_47-input {
+    width: 210px;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 360px;
+    left: 686px;
+    font-family: "Cascadia Mono", monospace;
+    font-weight: normal;
+    font-size: 32px;
+    opacity: 1;
+    text-align: left;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+}
+
+.v27_48-input {
+    width: 210px;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 415px;
+    left: 686px;
+    font-family: "Cascadia Mono", monospace;
+    font-weight: normal;
+    font-size: 32px;
+    opacity: 1;
+    text-align: left;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+}

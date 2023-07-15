@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<title>MyCommiserate</title>
+</head>
+
+<body>
+  <div class="v1_2">
+    <div class="v23_30"></div>
+    <span class="v23_31">Usuário:</span>
+    <input type="text" class="v27_47-input" id="usuario" />
+    <span class="v23_32">Senha:</span>
+    <input type="password" class="v27_48-input" id="senha" />
+    <div class="v23_33"></div>
+    <div class="v23_34"></div>
+    <div class="v23_35"></div>
+    <div class="v23_36"></div>
+    <button class="v23_37">Entrar</button>
+    <div class="v23_38"></div>
+  </div>
+
+  <script>
+    document.querySelector('.v23_37').addEventListener('click', function () {
+      var usuario = document.querySelector('#usuario').value;
+      var senha = document.querySelector('#senha').value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/verificar_usuario/', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onload = function () {
+        if (this.responseText === '{"status": "success"}') {
+          // usuário existe com a senha fornecida
+        } else {
+          // usuário não existe ou a senha está incorreta
+        }
+      };
+      xhr.send('usuario=' + usuario + '&senha=' + senha);
+    });
+
+
+  </script>
+</body>
+
+</html>
