@@ -1,4 +1,4 @@
-# README - Site de Anotações Básicas
+# MyCommiserate - Site de Anotações Básicas
 
 Bem-vindo(a) ao Site de Anotações Básicas! Este é um simples aplicativo web desenvolvido para ajudar você a fazer anotações rápidas e organizadas. Antes de começar, certifique-se de ter o Go instalado em seu sistema. 
 
