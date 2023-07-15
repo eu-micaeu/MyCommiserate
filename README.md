@@ -15,3 +15,16 @@ Para executar o aplicativo, siga estas etapas:
 
    ```shell
    go mod download
+
+3.Em seguida, execute o seguinte comando para iniciar o servidor:
+
+   ```shell
+   go run main.go
+
+O servidor será executado localmente na porta 8080.
+
+4.Agora, abra seu editor de código preferido (recomendamos o Visual Studio Code) e instale a extensão Live Server.
+
+5.No Visual Studio Code, clique com o botão direito no arquivo index.html no painel de navegação do VS Code e selecione "Open with Live Server".
+
+6.O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo.
