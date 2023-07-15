@@ -23,26 +23,23 @@
     <button class="v23_37">Entrar</button>
     <div class="v23_38"></div>
   </div>
-
   <script>
-    document.querySelector('.v23_37').addEventListener('click', function () {
-      var usuario = document.querySelector('#usuario').value;
-      var senha = document.querySelector('#senha').value;
+    document.querySelector('.v23_37').addEventListener('click', () => {
+      let username = document.getElementById('usuario').value;
+      let password = document.getElementById('senha').value;
 
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/verificar_usuario/', true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      xhr.onload = function () {
-        if (this.responseText === '{"status": "success"}') {
-          // usuário existe com a senha fornecida
-        } else {
-          // usuário não existe ou a senha está incorreta
-        }
-      };
-      xhr.send('usuario=' + usuario + '&senha=' + senha);
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data.message);
+        });
     });
-
-
   </script>
 </body>
 
