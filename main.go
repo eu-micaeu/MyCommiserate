@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	"github.com/gin-contrib/cors"
@@ -23,7 +24,19 @@ type Anot struct {
 
 func main() {
 
-	db, err := sql.Open("mysql", "root:12345678@/mycommiserate")
+	dbUser := "root"
+	dbPassword := "ajCPqarJKpcy6cdvrAHF"
+	dbHost := "containers-us-west-83.railway.app"
+	dbPort := "7416"
+	dbName := "mycommiserate"
+
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
+	db, err := sql.Open("mysql", dsn)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
 	if err != nil {
 		log.Fatal(err)
 	}
