@@ -23,7 +23,7 @@ type Anot struct {
 }
 
 func main() {
-	
+
 	dbUser := "root"
 	dbPassword := "ajCPqarJKpcy6cdvrAHF"
 	dbHost := "containers-us-west-83.railway.app"
