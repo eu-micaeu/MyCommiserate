@@ -1,10 +1,10 @@
-package main
+package web
 
 import (
     "net/http"
 )
 
-func main() {
+func server() {
     http.Handle("/", http.FileServer(http.Dir("../")))
     http.ListenAndServe(":8083", nil)
 }

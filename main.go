@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"./web"
+
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -23,6 +25,8 @@ type Anot struct {
 }
 
 func main() {
+
+	web.server()
 
 	dbUser := "root"
 	dbPassword := "ajCPqarJKpcy6cdvrAHF"
@@ -45,17 +49,20 @@ func main() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
+	// Serve arquivos estáticos na rota "/"
+    r.Static("/static", "./web")
+
 	r.GET("/users/:id", func(c *gin.Context) {
-		id := c.Param("id")
-		var user User
-		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = ?", id)
-		err := row.Scan(&user.ID, &user.Username, &user.Password)
-		if err != nil {
-			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
-			return
-		}
-		c.JSON(200, user)
-	})
+        id := c.Param("id")
+        var user User
+        row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = ?", id)
+        err := row.Scan(&user.ID, &user.Username, &user.Password)
+        if err != nil {
+            c.JSON(404, gin.H{"message": "Usuário não encontrado"})
+            return
+        }
+        c.JSON(200, user)
+    })
 
 	r.POST("/users", func(c *gin.Context) {
 		var newUser User
@@ -113,4 +120,5 @@ func main() {
 	})
 
 	r.Run(":8085")
+
 }
