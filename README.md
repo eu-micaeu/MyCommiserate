@@ -21,9 +21,9 @@ Para executar o aplicativo, siga estas etapas:
    ```shell
    go run main.go
    ```
-4. O servidor será executado localmente na porta 8080.
+4. O servidor será executado localmente na porta 8085.
 
-5. Agora, em outro terminal, entre no diretório web e rode o site na porta 8081 de forma local:
+5. Agora, em outro terminal, entre no diretório web e rode o site na porta 8083 de forma local:
    
    ```shell
    go run web.go
