@@ -1,4 +1,4 @@
-module mycommiserate
+module github.com/eu-micaeu/MyCommiserate
 
 go 1.20
 
