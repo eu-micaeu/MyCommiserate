@@ -2,12 +2,12 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
   <link rel="icon" href="./images/logo.png" type="image/x-icon">
 </head>
 <title>MyCommiserate</title>
-</head>
 
 <body>
   <div class="v1_2">
@@ -27,7 +27,7 @@
     document.querySelector(".v23_37").addEventListener("click", async () => {
       const username = document.querySelector("#usuario").value;
       const password = document.querySelector("#senha").value;
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch("http://localhost:8085/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -37,7 +37,7 @@
       const data = await response.json();
       if (data.message === "Login efetuado com sucesso!") {
         // Login bem-sucedido, redirecionar para outra página
-        window.location.href = "home/index.html";
+        window.location.href = "home.html";
       } else {
         // Login falhou, exibir mensagem de erro
         alert("Usuário ou senha incorretos");

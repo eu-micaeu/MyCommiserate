@@ -112,5 +112,5 @@ func main() {
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
 
-	r.Run()
+	r.Run(":8085")
 }
