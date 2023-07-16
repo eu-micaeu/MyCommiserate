@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/gin-contrib/cors"
@@ -43,6 +44,11 @@ func main() {
 		log.Fatal(err)
 	}
 	defer db.Close()
+
+	port := os.Getenv("PORT")
+    if port == "" {
+        port = "3000"
+    }
 
 	r := gin.Default()
 	r.Use(cors.Default())
