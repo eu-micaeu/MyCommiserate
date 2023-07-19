@@ -65,6 +65,59 @@ func main() {
 		c.JSON(200, user)
 	})
 
+	r.GET("/anotacoes/:id", func(c *gin.Context) {
+		id := c.Param("id")
+		var anot Anot
+		row := db.QueryRow("SELECT id_anotacao, titulo, anotacao FROM anotacoes WHERE id_anotacao = ?", id)
+		err := row.Scan(&anot.ID, &anot.Titulo, &anot.Anotacao)
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Anotação não encontrada"})
+			return
+		}
+		c.JSON(200, anot)
+	})
+
+	r.GET("/users", func(c *gin.Context) {
+		var usuarios []User
+		rows, err := db.Query("SELECT id_usuario, usuario, senha FROM usuarios")
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			var user User
+			err := rows.Scan(&user.ID, &user.Username, &user.Password)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
+				return
+			}
+			usuarios = append(usuarios, user)
+		}
+		c.JSON(200, usuarios)
+	})
+
+	r.GET("/anotacoes", func(c *gin.Context) {
+		var anotacoes []Anot
+		rows, err := db.Query("SELECT id_anotacao, titulo, anotacao FROM anotacoes")
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			var anot Anot
+			err := rows.Scan(&anot.ID, &anot.Titulo, &anot.Anotacao)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
+				return
+			}
+			anotacoes = append(anotacoes, anot)
+		}
+		c.JSON(200, anotacoes)
+	})
+	
+
 	r.POST("/users", func(c *gin.Context) {
 		var newUser User
 		if err := c.BindJSON(&newUser); err != nil {
@@ -98,8 +151,9 @@ func main() {
 			return
 		}
 		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!", "user": user})
+
 		http.SetCookie(c.Writer, &http.Cookie{
-			Name:  "userID",
+			Name:  "usuario",
 			Value: strconv.Itoa(user.ID),
 			Path:  "/",
 		})

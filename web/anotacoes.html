@@ -10,13 +10,34 @@
 
 <body>
     <div class="v65_2">
-        <center><div class="v65_3"></div></center>
+        <center>
+            <div class="v65_3"></div>
+        </center>
         <div class="v65_7"></div>
-        <div class="v65_15"></div><span class="v65_17">Título</span>
+        <div class="v65_15">
+            <button class="v65_17">Título</button>
+        </div>
     </div>
-
     <script>
+
+        window.addEventListener("load", minhaFuncao);
+        function minhaFuncao() {
+            // Substitua "1" pelo ID da anotação que deseja exibir
+            
+            var id = 1;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var anotacao = JSON.parse(this.responseText);
+                    // Atualize o conteúdo da página com o título da anotação
+                    document.querySelector(".v65_17").textContent = anotacao.titulo;
+                }
+            };
+            xhr.open("GET", "http://localhost:8085/anotacoes/" + id, true);
+            xhr.send();
+        }
 
     </script>
 </body>
+
 </html>

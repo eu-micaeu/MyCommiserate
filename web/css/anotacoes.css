@@ -57,16 +57,16 @@ body {
 }
 
 .v65_17 {
-  width: 122px;
+  width: 100%;
   color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 320px;
-  left: 159px;
   font-family: Cascadia Mono;
   font-weight: Regular;
   font-size: 32px;
   opacity: 1;
-  text-align: left;
+  text-align: center;
+  padding-top: 70px;
+  background-color: transparent;
+  border: none;
 }
 
 .v23_22,
