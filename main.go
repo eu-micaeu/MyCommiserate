@@ -13,13 +13,14 @@ import (
 )
 
 type User struct {
-	ID       int    `json:"id_usuario"`
+	ID_User       int    `json:"id_usuario"`
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
 
 type Anot struct {
-	ID       int    `json:"id_anot"`
+	ID_Anot  int    `json:"id_anotacao"`
+	ID_User       int    `json:"id_usuario"`
 	Titulo   string `json:"titulo"`
 	Anotacao string `json:"anotacao"`
 }
@@ -37,9 +38,9 @@ func site() {
 
 func server() {
 	dbUser := "root"
-	dbPassword := "ajCPqarJKpcy6cdvrAHF"
-	dbHost := "containers-us-west-83.railway.app"
-	dbPort := "7416"
+	dbPassword := "12345678"
+	dbHost := "localhost"
+	dbPort := "3306"
 	dbName := "mycommiserate"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
@@ -62,11 +63,11 @@ func server() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
-	r.GET("/users/:id", func(c *gin.Context) {
+	r.GET("/users/id/:id", func(c *gin.Context) {
 		id := c.Param("id")
 		var user User
 		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = ?", id)
-		err := row.Scan(&user.ID, &user.Username, &user.Password)
+		err := row.Scan(&user.ID_User, &user.Username, &user.Password)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
 			return
@@ -74,11 +75,24 @@ func server() {
 		c.JSON(200, user)
 	})
 
+	r.GET("/users/usuario/:username", func(c *gin.Context) {
+		username := c.Param("username")
+		var id int // Change the type to match your ID_User type (e.g., int)
+		row := db.QueryRow("SELECT id_usuario FROM usuarios WHERE usuario = ?", username)
+		err := row.Scan(&id)
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
+			return
+		}
+		c.JSON(200, gin.H{"id": id})
+	})
+	
+
 	r.GET("/anotacoes/:id", func(c *gin.Context) {
 		id := c.Param("id")
 		var anot Anot
 		row := db.QueryRow("SELECT id_anotacao, titulo, anotacao FROM anotacoes WHERE id_anotacao = ?", id)
-		err := row.Scan(&anot.ID, &anot.Titulo, &anot.Anotacao)
+		err := row.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Anotação não encontrada"})
 			return
@@ -96,7 +110,7 @@ func server() {
 		defer rows.Close()
 		for rows.Next() {
 			var user User
-			err := rows.Scan(&user.ID, &user.Username, &user.Password)
+			err := rows.Scan(&user.ID_User, &user.Username, &user.Password)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
 				return
@@ -116,7 +130,7 @@ func server() {
 		defer rows.Close()
 		for rows.Next() {
 			var anot Anot
-			err := rows.Scan(&anot.ID, &anot.Titulo, &anot.Anotacao)
+			err := rows.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
 				return
@@ -142,7 +156,7 @@ func server() {
 			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
 			return
 		}
-		newUser.ID = int(id)
+		newUser.ID_User = int(id)
 		c.JSON(200, gin.H{"message": "Usuário criado com sucesso!", "user": newUser})
 	})
 
@@ -153,7 +167,7 @@ func server() {
 			return
 		}
 		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE usuario = ? AND senha = ?", user.Username, user.Password)
-		err := row.Scan(&user.ID, &user.Username, &user.Password)
+		err := row.Scan(&user.ID_User, &user.Username, &user.Password)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário ou senha incorretos"})
 			return
@@ -162,13 +176,14 @@ func server() {
 
 	})
 
-	r.POST("/salvar", func(c *gin.Context) {
+	r.POST("/salvar/:id_usuario", func(c *gin.Context) {
+		id_usuario := c.Param("id_usuario")
 		var anot Anot
 		if err := c.BindJSON(&anot); err != nil {
 			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
 			return
 		}
-		result, err := db.Exec("INSERT INTO anotacoes (anotacao, titulo) VALUES (?, ?)", anot.Anotacao, anot.Titulo)
+		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo) VALUES (?, ?, ?)", id_usuario ,anot.Anotacao, anot.Titulo)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
 			return
@@ -178,7 +193,7 @@ func server() {
 			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
 			return
 		}
-		anot.ID = int(id)
+		anot.ID_Anot = int(id)
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
 

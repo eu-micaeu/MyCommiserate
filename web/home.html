@@ -27,15 +27,19 @@
         <button class="v23_29">Salvar</button>
     </div>
     <script>
+
+        const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
+
+
         document.querySelector(".v23_29").addEventListener("click", async () => {
             const titulo = document.querySelector("#titulo").value;
             const anotacao = document.querySelector("#anotacao").value;
-            const response = await fetch("http://localhost:8085/salvar", {
+            const response = await fetch(`http://localhost:8085/salvar/${loggedInUserID}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ titulo, anotacao })
+                body: JSON.stringify({ loggedInUserID, titulo, anotacao })
             });
             const data = await response.json();
             if (data.message === "Anotação criado com sucesso!") {

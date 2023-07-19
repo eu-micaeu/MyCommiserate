@@ -18,7 +18,9 @@
     <input type="password" class="v27_48-input" id="senha" />
     <div class="v23_33"></div>
     <div class="v23_34"></div>
-    <center><div class="v23_35"></div></center>
+    <center>
+      <div class="v23_35"></div>
+    </center>
     <div class="v23_36"></div>
     <button class="v23_37">Entrar</button>
     <div class="v23_38"></div>
@@ -37,11 +39,25 @@
       });
       const data = await response.json();
       if (data.message === "Login efetuado com sucesso!") {
+        // Armazena o usuário logado no localStorage
+        const response = await fetch(`http://localhost:8085/users/usuario/${username}`);
+        const data = await response.json();
+
+        if (response.status === 404) {
+          alert("Usuário não encontrado");
+        } else {
+          // Armazena o ID do usuário logado no localStorage
+          localStorage.setItem("loggedInUserID", data.id);
+          window.location.href = "home.html";
+        }
         window.location.href = "home.html";
       } else {
         alert("Usuário ou senha incorretos");
       }
     });
+
+
+
 
   </script>
 
