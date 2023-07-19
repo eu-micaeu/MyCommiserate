@@ -24,42 +24,44 @@
 
     <script>
         document.querySelector(".v74_19").addEventListener("click", async () => {
-      const username = document.querySelector("#usuario").value;
-      const password = document.querySelector("#senha").value;
-      const passwordconfirmed = document.querySelector("#senhaconfirmada").value;
-      if(password == passwordconfirmed){
-        const response = await fetch("http://localhost:8085/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
-      });
-      }else{
-        alert("Confirmação da senha e senha estão diferentes.");
-      }
-      const data = await response.json();
-      if (data.message === "Cadastro efetuado com sucesso!") {
-        // Armazena o usuário logado no localStorage
-        const response = await fetch(`http://localhost:8085/users/usuario/${username}`);
-        const data = await response.json();
+            const username = document.querySelector("#usuario").value;
+            const password = document.querySelector("#senha").value;
+            const passwordconfirmed = document.querySelector("#senhaconfirmada").value;
 
-        if (response.status === 404) {
-          alert("Usuário não encontrado");
-        } else {
-          // Armazena o ID do usuário logado no localStorage
-          localStorage.setItem("loggedInUserID", data.id);
-          window.location.href = "index.html";
-        }
-        window.location.href = "index.html";
-      } else {
-        alert("Dados incorretos");
-      }
-    })
+            if (password !== passwordconfirmed) {
+                alert("Confirmação da senha e senha estão diferentes.");
+                return; // Encerra a função caso as senhas não sejam iguais
+            }
+
+            const response = await fetch("http://localhost:8085/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+
+            if (data.message === "Usuário criado com sucesso!") {
+                // Armazena o usuário logado no localStorage
+                const responseUser = await fetch(`http://localhost:8085/users/usuario/${username}`);
+                const dataUser = await responseUser.json();
+
+                if (responseUser.status === 404) {
+                    alert("Usuário não encontrado");
+                } else {
+                    // Armazena o ID do usuário logado no localStorage
+                    localStorage.setItem("loggedInUserID", dataUser.id);
+                    window.location.href = "index.html";
+                }
+                alert("Cadastro feito");
+            } else {
+                alert("Dados incorretos");
+            }
+        });
     </script>
 
 </body>
-
-
 
 </html>
