@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/gin-contrib/cors"
@@ -25,6 +26,16 @@ type Anot struct {
 
 func main() {
 
+	go site()
+	server()
+}
+
+func site() {
+	http.Handle("/", http.FileServer(http.Dir("./web")))
+	http.ListenAndServe(":8082", nil)
+}
+
+func server() {
 	dbUser := "root"
 	dbPassword := "ajCPqarJKpcy6cdvrAHF"
 	dbHost := "containers-us-west-83.railway.app"
@@ -172,5 +183,4 @@ func main() {
 	})
 
 	r.Run(":8085")
-
 }
