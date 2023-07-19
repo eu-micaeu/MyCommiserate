@@ -4,9 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
-	"strconv"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -46,9 +44,9 @@ func main() {
 	defer db.Close()
 
 	port := os.Getenv("PORT")
-    if port == "" {
-        port = "3000"
-    }
+	if port == "" {
+		port = "3000"
+	}
 
 	r := gin.Default()
 	r.Use(cors.Default())
@@ -116,7 +114,6 @@ func main() {
 		}
 		c.JSON(200, anotacoes)
 	})
-	
 
 	r.POST("/users", func(c *gin.Context) {
 		var newUser User
@@ -152,11 +149,6 @@ func main() {
 		}
 		c.JSON(200, gin.H{"message": "Login efetuado com sucesso!", "user": user})
 
-		http.SetCookie(c.Writer, &http.Cookie{
-			Name:  "usuario",
-			Value: strconv.Itoa(user.ID),
-			Path:  "/",
-		})
 	})
 
 	r.POST("/salvar", func(c *gin.Context) {
