@@ -4,24 +4,62 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
     <link href="./css/cadastro.css" rel="stylesheet" />
-    <title>Document</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
 </head>
+<title>MyCommiserate</title>
 
 <body>
     <div class="v74_2">
         <div class="v74_3"></div><span class="v74_4">Usuário:</span><span class="v74_7">Senha:
         </span><span class="v74_14">Conf. Senha:</span>
-        <div class="v74_8"></div>
-        <div class="v74_9"></div>
-        <div class="v74_15"></div>
+        <input class="v74_8" id="usuario"></input>
+        <input class="v74_9" id="senha"></input>
+        <input class="v74_15" id="senhaconfirmada"></input>
         <center>
             <div class="v74_10"></div>
         </center>
-        <div class="v74_13"></div>
-        <div class="v74_18"></div><button class="v74_19">Confirmar</button><span class="v74_20">Li e aceito a Política de
-            privacidade do Grupo Commiserate.</span>
-        <div class="v74_21"></div><p class="v74_22">Cadastro</p>
+        <div class="v74_18"></div>
+        <button class="v74_19">Confirmar</button>
     </div>
+
+    <script>
+        document.querySelector(".v74_19").addEventListener("click", async () => {
+      const username = document.querySelector("#usuario").value;
+      const password = document.querySelector("#senha").value;
+      const passwordconfirmed = document.querySelector("#senhaconfirmada").value;
+      if(password == passwordconfirmed){
+        const response = await fetch("http://localhost:8085/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      });
+      }else{
+        alert("Confirmação da senha e senha estão diferentes.");
+      }
+      const data = await response.json();
+      if (data.message === "Cadastro efetuado com sucesso!") {
+        // Armazena o usuário logado no localStorage
+        const response = await fetch(`http://localhost:8085/users/usuario/${username}`);
+        const data = await response.json();
+
+        if (response.status === 404) {
+          alert("Usuário não encontrado");
+        } else {
+          // Armazena o ID do usuário logado no localStorage
+          localStorage.setItem("loggedInUserID", data.id);
+          window.location.href = "index.html";
+        }
+        window.location.href = "index.html";
+      } else {
+        alert("Dados incorretos");
+      }
+    })
+    </script>
+
 </body>
+
+
 
 </html>

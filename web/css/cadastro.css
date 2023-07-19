@@ -23,12 +23,9 @@ body {
   background: rgba(0, 0, 0, 1);
   opacity: 1;
   position: absolute;
-  top: 335px;
+  top: 250px;
   left: 33.3%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -36,7 +33,7 @@ body {
   width: 164px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 401px;
+  top: 295px;
   left: 33.9%;
   font-family: Cascadia Mono;
   font-weight: Regular;
@@ -49,7 +46,7 @@ body {
   width: 184px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 464px;
+  top: 355px;
   left: 33.9%;
   font-family: Cascadia Mono;
   font-weight: Regular;
@@ -62,7 +59,7 @@ body {
   width: 225px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 532px;
+  top: 415px;
   left: 33.9%;
   font-family: Cascadia Mono;
   font-weight: Regular;
@@ -72,57 +69,61 @@ body {
 }
 
 .v74_8 {
-  width: 278px;
-  height: 52px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
+
+  width: 275px;
+  color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 396px;
+
+  font-family: "Cascadia Mono", monospace;
+  font-weight: normal;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+
+
+  top: 295px;
   left: 47%;
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
+
 }
 
 .v74_9 {
-  width: 278px;
-  height: 52px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 459px;
+  
+  top: 350px;
   left: 47%;
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
+  width: 275px;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+
+  font-family: "Cascadia Mono", monospace;
+  font-weight: normal;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
 }
 
 .v74_15 {
-  width: 198px;
-  height: 52px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 527px;
+  
+  top: 410px;
   left: 52.3%;
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
+  
+  width: 194px;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+
+  font-family: "Cascadia Mono", monospace;
+  font-weight: normal;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
 }
 
 .v74_10 {
@@ -137,13 +138,13 @@ body {
 }
 
 .v74_13 {
-  width: 100%;
+  width: 98.5%;
   height: 24px;
   background: rgba(0, 0, 0, 1);
   opacity: 1;
   position: absolute;
-  top: 208px;
-  left: 0px;
+  top: 210px;
+  left: 10px;
   overflow: hidden;
 }
 
@@ -153,8 +154,8 @@ body {
   background: rgba(0, 0, 0, 1);
   opacity: 1;
   position: absolute;
-  top: 640px;
-  left: 43%;
+  top: 550px;
+  left: 43.2%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -166,7 +167,7 @@ body {
   width: 177px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 650px;
+  top: 555px;
   left: 43.5%;
   font-family: Cascadia Mono;
   font-weight: Regular;
@@ -216,4 +217,3 @@ body {
   opacity: 1;
   text-align: left;
 }
-
