@@ -13,14 +13,14 @@ import (
 )
 
 type User struct {
-	ID_User       int    `json:"id_usuario"`
+	ID_User  int    `json:"id_usuario"`
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
 
 type Anot struct {
 	ID_Anot  int    `json:"id_anotacao"`
-	ID_User       int    `json:"id_usuario"`
+	ID_User  int    `json:"id_usuario"`
 	Titulo   string `json:"titulo"`
 	Anotacao string `json:"anotacao"`
 }
@@ -38,9 +38,9 @@ func site() {
 
 func server() {
 	dbUser := "root"
-	dbPassword := "12345678"
-	dbHost := "localhost"
-	dbPort := "3306"
+	dbPassword := "ajCPqarJKpcy6cdvrAHF"
+	dbHost := "containers-us-west-83.railway.app"
+	dbPort := "7416"
 	dbName := "mycommiserate"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
@@ -86,7 +86,6 @@ func server() {
 		}
 		c.JSON(200, gin.H{"id": id})
 	})
-	
 
 	r.GET("/anotacoes/:id", func(c *gin.Context) {
 		id := c.Param("id")
@@ -183,7 +182,7 @@ func server() {
 			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
 			return
 		}
-		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo) VALUES (?, ?, ?)", id_usuario ,anot.Anotacao, anot.Titulo)
+		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo) VALUES (?, ?, ?)", id_usuario, anot.Anotacao, anot.Titulo)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
 			return
