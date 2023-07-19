@@ -91,7 +91,7 @@ func server() {
 	r.GET("/anotacoes/:id", func(c *gin.Context) {
 		id := c.Param("id")
 		var anot Anot
-		row := db.QueryRow("SELECT id_anotacao, titulo, anotacao FROM anotacoes WHERE id_anotacao = ?", id)
+		row := db.QueryRow("SELECT id_anotacao, titulo, anotacao FROM anotacoes WHERE id_usuario = ?", id)
 		err := row.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Anotação não encontrada"})

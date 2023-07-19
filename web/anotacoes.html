@@ -24,7 +24,7 @@
         function minhaFuncao() {
             // Substitua "1" pelo ID da anotação que deseja exibir
             
-            var id = 1;
+            var id = parseInt(localStorage.getItem("loggedInUserID"));
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
