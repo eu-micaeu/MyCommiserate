@@ -34,7 +34,7 @@
         document.querySelector(".v23_29").addEventListener("click", async () => {
             const titulo = document.querySelector("#titulo").value;
             const anotacao = document.querySelector("#anotacao").value;
-            const response = await fetch(`http://localhost:8080/salvar/${loggedInUserID}`, {
+            const response = await fetch(`/salvar/${loggedInUserID}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

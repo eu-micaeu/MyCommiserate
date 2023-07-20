@@ -33,7 +33,7 @@
                 return; // Encerra a função caso as senhas não sejam iguais
             }
 
-            const response = await fetch("http://localhost:8080/users", {
+            const response = await fetch("/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -45,7 +45,7 @@
 
             if (data.message === "Usuário criado com sucesso!") {
                 // Armazena o usuário logado no localStorage
-                const responseUser = await fetch(`http://localhost:8080/users/usuario/${username}`);
+                const responseUser = await fetch(`/users/usuario/${username}`);
                 const dataUser = await responseUser.json();
 
                 if (responseUser.status === 404) {
