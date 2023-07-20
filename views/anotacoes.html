@@ -3,9 +3,9 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
-    <link href="./css/anotacoes.css" rel="stylesheet" />
+    <link href="..\static\css\anotacoes.css" rel="stylesheet" />
     <title>MyCommiserate</title>
-    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="icon" href="..\static\css\images\logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                     document.querySelector(".v65_17").textContent = anotacao.titulo;
                 }
             };
-            xhr.open("GET", "http://localhost:8085/anotacoes/" + id, true);
+            xhr.open("GET", "http://localhost:8080/anotacoes/" + id, true);
             xhr.send();
         }
 

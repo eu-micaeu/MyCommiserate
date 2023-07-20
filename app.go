@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -27,14 +28,9 @@ type Anot struct {
 
 func main() {
 
-	go site()
 	server()
 }
 
-func site() {
-	http.Handle("/", http.FileServer(http.Dir("./views")))
-	http.ListenAndServe(":8082", nil)
-}
 
 func server() {
 	dbUser := "root"
@@ -62,6 +58,7 @@ func server() {
 
 	r := gin.Default()
 	r.Use(cors.Default())
+
 
 	r.GET("/users/id/:id", func(c *gin.Context) {
 		id := c.Param("id")
@@ -195,6 +192,25 @@ func server() {
 		anot.ID_Anot = int(id)
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
+	r.Static("/static", "./static")
+	r.LoadHTMLGlob("views/*.html") // Isso carrega todos os arquivos HTML dentro da pasta views
+
+    // Rota para servir a página inicial (index.html)
+    r.GET("/", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "index.html", nil)
+    })
+	r.GET("/home.html", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "home.html", nil)
+    })
+	r.GET("/cadastro.html", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "cadastro.html", nil)
+    })
+	r.GET("/anotacoes.html", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "anotacoes.html", nil)
+    })
+
+	// Antes de r.Run()
+fmt.Println("Caminho absoluto para o diretório de arquivos estáticos:", filepath.Join(".", "views"))
 
 	r.Run()
 }

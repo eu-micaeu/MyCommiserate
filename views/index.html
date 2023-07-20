@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="icon" href="./images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="..\static\css\index.css" />
+  <link rel="icon" href="..\static\css\images\logo.png" type="image/x-icon">
 </head>
 <title>MyCommiserate</title>
 
@@ -32,7 +32,7 @@
     document.querySelector(".v23_37").addEventListener("click", async () => {
       const username = document.querySelector("#usuario").value;
       const password = document.querySelector("#senha").value;
-      const response = await fetch("http://localhost:8085/login", {
+      const response = await fetch("http://localhost:8080/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -42,7 +42,7 @@
       const data = await response.json();
       if (data.message === "Login efetuado com sucesso!") {
         // Armazena o usuário logado no localStorage
-        const response = await fetch(`http://localhost:8085/users/usuario/${username}`);
+        const response = await fetch(`http://localhost:8080/users/usuario/${username}`);
         const data = await response.json();
 
         if (response.status === 404) {
