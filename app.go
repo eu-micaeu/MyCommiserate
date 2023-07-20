@@ -192,25 +192,31 @@ func server() {
 		anot.ID_Anot = int(id)
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
-	r.Static("/", "./static")
-	r.LoadHTMLGlob("views/*.html") // Isso carrega todos os arquivos HTML dentro da pasta views
+	r.LoadHTMLGlob("views/*.html") // Carregar todos os arquivos HTML dentro da pasta views
 
     // Rota para servir a página inicial (index.html)
     r.GET("/", func(c *gin.Context) {
         c.HTML(http.StatusOK, "index.html", nil)
     })
-	r.GET("/home.html", func(c *gin.Context) {
+
+    r.GET("/home.html", func(c *gin.Context) {
         c.HTML(http.StatusOK, "home.html", nil)
     })
-	r.GET("/cadastro.html", func(c *gin.Context) {
+
+    r.GET("/cadastro.html", func(c *gin.Context) {
         c.HTML(http.StatusOK, "cadastro.html", nil)
     })
-	r.GET("/anotacoes.html", func(c *gin.Context) {
+
+    r.GET("/anotacoes.html", func(c *gin.Context) {
         c.HTML(http.StatusOK, "anotacoes.html", nil)
     })
+
+    // Rota estática para servir os arquivos CSS, JS e imagens
+    r.Static("/static", "./static")
+
+    r.Run()
 
 	// Antes de r.Run()
 fmt.Println("Caminho absoluto para o diretório de arquivos estáticos:", filepath.Join(".", "views"))
 
-	r.Run()
 }
