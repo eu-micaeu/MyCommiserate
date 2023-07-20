@@ -192,7 +192,7 @@ func server() {
 		anot.ID_Anot = int(id)
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
-	r.Static("/static", "./static")
+	r.Static("/", "./static")
 	r.LoadHTMLGlob("views/*.html") // Isso carrega todos os arquivos HTML dentro da pasta views
 
     // Rota para servir a página inicial (index.html)
