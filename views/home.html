@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
+    <link href="css/home.css" rel="stylesheet" />
+    <title>MyCommiserate</title>
+    <link rel="icon" href="./images/logo.png" type="image/x-icon">
+</head>
+
+
+<body>
+    <div class="v23_18">
+        <center>
+            <div class="v23_19"></div>
+        </center>
+        <div class="v23_20"></div>
+        <button class="v23_31">Anotações</button>
+        <div class="v23_23"></div>
+        <div class="v23_24"></div>
+        <div class="v23_25"></div>
+        <div class="v23_26"></div>
+        <textarea class="v23_27" placeholder="Escreva aqui..." rows="4" cols="50" id="anotacao"></textarea>
+
+        <input type="text" class="v23_28" placeholder="Título:" id="titulo">
+        <button class="v23_29">Salvar</button>
+    </div>
+    <script>
+
+        const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
+
+
+        document.querySelector(".v23_29").addEventListener("click", async () => {
+            const titulo = document.querySelector("#titulo").value;
+            const anotacao = document.querySelector("#anotacao").value;
+            const response = await fetch(`http://localhost:8085/salvar/${loggedInUserID}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ loggedInUserID, titulo, anotacao })
+            });
+            const data = await response.json();
+            if (data.message === "Anotação criado com sucesso!") {
+                alert("Anotação salva");
+                document.querySelector("#titulo").value = "";
+                document.querySelector("#anotacao").value = "";
+            } else {
+                alert("Eita, deu erro");
+            }
+        });
+
+
+        document.querySelector('.v23_31').addEventListener('click', function () {
+            window.location.href = 'anotacoes.html';
+        });
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="icon" href="./images/logo.png" type="image/x-icon">
+</head>
+<title>MyCommiserate</title>
+
+<body>
+  <div class="v1_2">
+    <div class="v23_30"></div>
+    <span class="v23_31">Usuário:</span>
+    <input type="text" class="v27_47-input" id="usuario" />
+    <span class="v23_32">Senha:</span>
+    <input type="password" class="v27_48-input" id="senha" />
+    <div class="v23_33"></div>
+    <div class="v23_34"></div>
+    <center>
+      <div class="v23_35"></div>
+    </center>
+    <div class="v23_36"></div>
+    <button class="v23_37">Entrar</button>
+    <div class="v23_3612"></div>
+    <button class="v23_372">Cadastro</button>
+
+  </div>
+  <script>
+
+    document.querySelector(".v23_37").addEventListener("click", async () => {
+      const username = document.querySelector("#usuario").value;
+      const password = document.querySelector("#senha").value;
+      const response = await fetch("http://localhost:8085/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      });
+      const data = await response.json();
+      if (data.message === "Login efetuado com sucesso!") {
+        // Armazena o usuário logado no localStorage
+        const response = await fetch(`http://localhost:8085/users/usuario/${username}`);
+        const data = await response.json();
+
+        if (response.status === 404) {
+          alert("Usuário não encontrado");
+        } else {
+          // Armazena o ID do usuário logado no localStorage
+          localStorage.setItem("loggedInUserID", data.id);
+          window.location.href = "home.html";
+        }
+        window.location.href = "home.html";
+      } else {
+        alert("Usuário ou senha incorretos");
+      }
+    })
+    document.querySelector(".v23_372").addEventListener("click", async () => {
+      window.location.href = "cadastro.html";
+    })
+
+  </script>
+
+</body>
+
+</html>
