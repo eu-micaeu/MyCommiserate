@@ -142,6 +142,8 @@ body {
     border-radius: 10px;
     outline: none;
     background-color: transparent;
+    border-style: groove;
+  border-color: white;
 }
 
 .v27_48-input {
@@ -158,5 +160,7 @@ body {
     border-radius: 10px;
     outline: none;
     background-color: transparent;
+    border-style: groove;
+  border-color: white;
 }
 

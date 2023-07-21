@@ -19,22 +19,22 @@ body {
 
 .v74_3 {
   width: 504px;
-  height: 259px;
-  background: rgba(0, 0, 0, 1);
-  opacity: 1;
-  position: absolute;
-  top: 250px;
-  left: 33.3%;
-  border-radius: 10px;
-  overflow: hidden;
+    height: 275px;
+    background: rgba(0, 0, 0, 1);
+    opacity: 1;
+    position: absolute;
+    top: 258px;
+    left: 33.7%;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .v74_4 {
   width: 164px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 295px;
-  left: 33.9%;
+  top: 308px;
+  left: 35%;
   font-family: Cascadia Mono;
   font-weight: Regular;
   font-size: 32px;
@@ -46,8 +46,8 @@ body {
   width: 184px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 355px;
-  left: 33.9%;
+  top: 368px;
+  left: 35%;
   font-family: Cascadia Mono;
   font-weight: Regular;
   font-size: 32px;
@@ -59,8 +59,8 @@ body {
   width: 225px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
-  top: 415px;
-  left: 33.9%;
+  top: 428px;
+  left: 35%;
   font-family: Cascadia Mono;
   font-weight: Regular;
   font-size: 32px;
@@ -84,14 +84,15 @@ body {
   background-color: transparent;
 
 
-  top: 295px;
+  top: 308px;
   left: 47%;
-
+  border-style: groove;
+  border-color: white;
 }
 
 .v74_9 {
   
-  top: 350px;
+  top: 363px;
   left: 47%;
   width: 275px;
   color: rgba(255, 255, 255, 1);
@@ -105,14 +106,16 @@ body {
   border-radius: 10px;
   outline: none;
   background-color: transparent;
+  border-style: groove;
+  border-color: white;
 }
 
 .v74_15 {
   
-  top: 410px;
-  left: 52.3%;
+  top: 423px;
+  left: 51%;
   
-  width: 194px;
+  width: 211px;
   color: rgba(255, 255, 255, 1);
   position: absolute;
 
@@ -124,6 +127,8 @@ body {
   border-radius: 10px;
   outline: none;
   background-color: transparent;
+  border-style: groove;
+  border-color: white;
 }
 
 .v74_10 {
