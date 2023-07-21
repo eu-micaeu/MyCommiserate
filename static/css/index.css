@@ -21,13 +21,11 @@ body {
     width: 504px;
     height: 198px;
     background: rgba(0, 0, 0, 1);
-    position:absolute;
+    position: absolute;
     top: 250px;
     left: 33.5%;
     border-radius: 10px;
 }
-
-
 
 .v23_31,
 .v23_32 {
@@ -38,14 +36,12 @@ body {
     text-align: left;
     position: absolute;
     top: 300px;
-    left: 35%;   
+    left: 35%;
 }
 
 .v23_32 {
     top: 360px;
 }
-
-
 
 .v23_33 {
     background-image: url("../images/v23_33.png");
@@ -121,7 +117,7 @@ body {
     background: rgba(0, 0, 0, 1);
     opacity: 1;
     position: absolute;
-    top: 210px; 
+    top: 210px;
     left: 0px;
     overflow: hidden;
 }
@@ -131,7 +127,7 @@ body {
     color: rgba(255, 255, 255, 1);
     position: absolute;
     top: 300px;
-    left: 48%;   
+    left: 48%;
     font-family: "Cascadia Mono", monospace;
     font-weight: normal;
     font-size: 30px;
@@ -141,7 +137,7 @@ body {
     outline: none;
     background-color: transparent;
     border-style: groove;
-  border-color: white;
+    border-color: white;
 }
 
 .v27_48-input {
@@ -149,7 +145,7 @@ body {
     color: rgba(255, 255, 255, 1);
     position: absolute;
     top: 355px;
-    left: 48%;    
+    left: 48%;
     font-family: "Cascadia Mono", monospace;
     font-weight: normal;
     font-size: 30px;
@@ -159,6 +155,56 @@ body {
     outline: none;
     background-color: transparent;
     border-style: groove;
-  border-color: white;
+    border-color: white;
 }
 
+@media screen and (max-width: 768px) {
+    .v1_2 {
+      height: auto;
+    }
+  
+    .v1_2 {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .v23_30 {
+      width: 90%;
+      left: 5%;
+    }
+  
+    .v23_31,
+    .v23_32 {
+      font-size: 24px;
+      top: 10%;
+      left: 5%;
+    }
+  
+    .v23_32 {
+      top: 18%;
+    }
+  
+    .v23_33,
+    .v23_34,
+    .v23_35,
+    .v23_36,
+    .v23_3612 {
+      display: none;
+    }
+  
+    .v23_37,
+    .v23_372 {
+      font-size: 24px;
+      width: 90%;
+      left: 5%;
+    }
+  
+    .v27_47-input,
+    .v27_48-input {
+      width: 90%;
+      left: 5%;
+      font-size: 20px;
+      top: 10%;
+    }
+  }
+  
