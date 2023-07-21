@@ -31,7 +31,6 @@ func main() {
 	server()
 }
 
-
 func server() {
 	dbUser := "root"
 	dbPassword := "ajCPqarJKpcy6cdvrAHF"
@@ -59,8 +58,8 @@ func server() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
-
-	r.GET("/users/id/:id", func(c *gin.Context) {
+	// GET - USUARIO ATRAVÉS DO ID QUE IRÁ RETORNAR O ID, NOME DO USUARIO, SENHA
+	r.GET("/users/:id", func(c *gin.Context) {
 		id := c.Param("id")
 		var user User
 		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = ?", id)
@@ -72,9 +71,10 @@ func server() {
 		c.JSON(200, user)
 	})
 
+	// GET - USUARIO ATRAVÉS DO NOME DO USUARIO QUE IRÁ RETORNAR O ID DELE
 	r.GET("/users/usuario/:username", func(c *gin.Context) {
 		username := c.Param("username")
-		var id int // Change the type to match your ID_User type (e.g., int)
+		var id int 
 		row := db.QueryRow("SELECT id_usuario FROM usuarios WHERE usuario = ?", username)
 		err := row.Scan(&id)
 		if err != nil {
@@ -86,15 +86,51 @@ func server() {
 
 	r.GET("/anotacoes/:id", func(c *gin.Context) {
 		id := c.Param("id")
-		var anot Anot
-		row := db.QueryRow("SELECT id_anotacao, titulo, anotacao FROM anotacoes WHERE id_usuario = ?", id)
-		err := row.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
+
+		// Crie um slice para armazenar as anotações
+		var anotacoes []Anot
+
+		// Execute a consulta ao banco de dados
+		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_usuario = ?", id)
 		if err != nil {
-			c.JSON(404, gin.H{"message": "Anotação não encontrada"})
+			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
+			return
+		}
+		defer rows.Close()
+
+		// Percorra as linhas retornadas e adicione as anotações ao slice
+		for rows.Next() {
+			var anot Anot
+			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao ler as anotações"})
+				return
+			}
+			anotacoes = append(anotacoes, anot)
+		}
+
+		// Verifique se houve algum erro durante o loop ou se não foram encontradas anotações
+		if err := rows.Err(); err != nil {
+			c.JSON(404, gin.H{"message": "Anotações não encontradas"})
+			return
+		}
+
+		c.JSON(200, anotacoes)
+	})
+
+	// GET - ANOTACAO ATRAVÉS DO ID QUE IRÁ RETORNAR O ID, TITULO, CONTEUDO DA ANOTACAO
+	r.GET("/anotacao/:id", func(c *gin.Context) {
+		id := c.Param("id")
+		var anot Anot
+		row := db.QueryRow("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_anotacao = ?", id)
+		err := row.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Anotação não encontrado"})
 			return
 		}
 		c.JSON(200, anot)
 	})
+	
 
 	r.GET("/users", func(c *gin.Context) {
 		var usuarios []User
@@ -192,31 +228,52 @@ func server() {
 		anot.ID_Anot = int(id)
 		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
 	})
+
+	r.POST("/atualizar/:id_anotacao", func(c *gin.Context) {
+		idAnotacao := c.Param("id_anotacao")
+		var anot Anot
+		if err := c.BindJSON(&anot); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao atualizar anotação"})
+			return
+		}
+		_, err := db.Exec("UPDATE anotacoes SET titulo = ?, anotacao = ? WHERE id_anotacao = ?", anot.Titulo, anot.Anotacao, idAnotacao)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao atualizar anotação"})
+			return
+		}
+		c.JSON(200, gin.H{"message": "Anotação atualizada com sucesso!", "anot": anot})
+	})
+	
+
 	r.LoadHTMLGlob("views/*.html") // Carregar todos os arquivos HTML dentro da pasta views
 
-    // Rota para servir a página inicial (index.html)
-    r.GET("/", func(c *gin.Context) {
-        c.HTML(http.StatusOK, "index.html", nil)
-    })
+	// Rota para servir a página inicial (index.html)
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
 
-    r.GET("/home.html", func(c *gin.Context) {
-        c.HTML(http.StatusOK, "home.html", nil)
-    })
+	r.GET("/home.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "home.html", nil)
+	})
 
-    r.GET("/cadastro.html", func(c *gin.Context) {
-        c.HTML(http.StatusOK, "cadastro.html", nil)
-    })
+	r.GET("/cadastro.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "cadastro.html", nil)
+	})
 
-    r.GET("/anotacoes.html", func(c *gin.Context) {
-        c.HTML(http.StatusOK, "anotacoes.html", nil)
-    })
+	r.GET("/anotacoes.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "anotacoes.html", nil)
+	})
 
-    // Rota estática para servir os arquivos CSS, JS e imagens
-    r.Static("/static", "./static")
+	r.GET("/editar.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "editar.html", nil)
+	})
 
-    r.Run()
+	// Rota estática para servir os arquivos CSS, JS e imagens
+	r.Static("/static", "./static")
+
+	r.Run()
 
 	// Antes de r.Run()
-fmt.Println("Caminho absoluto para o diretório de arquivos estáticos:", filepath.Join(".", "views"))
+	fmt.Println("Caminho absoluto para o diretório de arquivos estáticos:", filepath.Join(".", "views"))
 
 }

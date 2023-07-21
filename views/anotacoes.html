@@ -10,38 +10,81 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
         crossorigin="anonymous"></script>
 
+    <style>
+        .v65_15 {
+            width: 98%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .repeated-buttons {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            height: auto;
+        }
+
+        .v65_17 {
+            width: calc(33.333% - 2px);
+        }
+    </style>
+
+
 </head>
 
 <body>
     <div class="v65_2">
         <center>
-            <div class="v65_3"></div>
+            <div class="v65_3" onclick="window.location.href='/home.html'"></div>
         </center>
         <div class="v65_7"></div>
-        <div class="v65_15">
-            <button class="v65_17">Título</button>
-        </div>
     </div>
+    <div class="v65_15">
+        <div class="repeated-buttons"></div>
+    </div>
+
     <script>
-
         window.addEventListener("load", minhaFuncao);
-        function minhaFuncao() {
-            // Substitua "1" pelo ID da anotação que deseja exibir
 
+        function minhaFuncao() {
             var id = parseInt(localStorage.getItem("loggedInUserID"));
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    var anotacao = JSON.parse(this.responseText);
-                    // Atualize o conteúdo da página com o título da anotação
-                    document.querySelector(".v65_17").textContent = anotacao.titulo;
+                    var anotacoes = JSON.parse(this.responseText);
+                    var repeatedButtonsContainer = document.querySelector(".repeated-buttons");
+
+                    repeatedButtonsContainer.innerHTML = "";
+
+                    for (var i = 0; i < anotacoes.length; i++) {
+                        var clonedButton = document.createElement("button");
+                        clonedButton.classList.add("v65_17");
+                        clonedButton.textContent = anotacoes[i].titulo;
+                        var annotationID = anotacoes[i].id_anotacao;
+
+                        clonedButton.addEventListener("click", function (id) {
+                            return function () {
+                                // Store the id_anotacao in localStorage
+                                localStorage.setItem("selectedAnotacaoID", id);
+
+                            };
+                        }(annotationID));
+                        clonedButton.addEventListener("click", function () {
+                            window.location.href = "/editar.html";
+                        });
+                        repeatedButtonsContainer.appendChild(clonedButton);
+                    }
                 }
             };
             xhr.open("GET", "/anotacoes/" + id, true);
             xhr.send();
         }
-
     </script>
+
 </body>
 
 </html>

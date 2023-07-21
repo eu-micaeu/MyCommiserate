@@ -21,12 +21,10 @@ body {
     width: 504px;
     height: 198px;
     background: rgba(0, 0, 0, 1);
-    opacity: 1;
-    position: absolute;
+    position:absolute;
     top: 250px;
     left: 33.5%;
     border-radius: 10px;
-    overflow: hidden;
 }
 
 
