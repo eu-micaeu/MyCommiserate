@@ -19,8 +19,8 @@ Para executar o aplicativo, siga estas etapas:
 3. Em seguida, execute o seguinte comando para iniciar o servidor:
 
    ```shell
-   go run main.go
+   go run app.go
    ```
-4. O servidor e o site será executado localmente na porta 8082.
+4. O servidor e o site será executado localmente na porta 8080.
 
-5. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo no seguinte link: http://localhost:8082
+5. O site de anotações básicas será aberto em seu navegador padrão e você poderá começar a usar o aplicativo no seguinte link: http://localhost:8080
