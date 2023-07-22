@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"path/filepath"
 
 	"github.com/gin-contrib/cors"
@@ -50,10 +49,7 @@ func server() {
 	}
 	defer db.Close()
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "3000"
-	}
+	
 
 	r := gin.Default()
 	r.Use(cors.Default())
@@ -243,11 +239,26 @@ func server() {
 		}
 		c.JSON(200, gin.H{"message": "Anotação atualizada com sucesso!", "anot": anot})
 	})
+
+	r.DELETE("/excluir/:id_anotacao", func(c *gin.Context) {
+		idAnotacao := c.Param("id_anotacao")
+
+		// Realiza a operação DELETE no banco de dados usando o ID fornecido.
+		_, err := db.Exec("DELETE FROM anotacoes WHERE id_anotacao = ?", idAnotacao)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao excluir anotação"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Anotação excluída com sucesso!"})
+	})
 	
 
-	r.LoadHTMLGlob("views/*.html") // Carregar todos os arquivos HTML dentro da pasta views
+	
 
-	// Rota para servir a página inicial (index.html)
+	r.LoadHTMLGlob("views/*.html") 
+
+	
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
@@ -273,7 +284,6 @@ func server() {
 
 	r.Run()
 
-	// Antes de r.Run()
 	fmt.Println("Caminho absoluto para o diretório de arquivos estáticos:", filepath.Join(".", "views"))
 
 }
