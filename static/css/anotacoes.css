@@ -39,19 +39,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-#backup{
-  color: rgba(255, 255, 255);
-  background-color: #000;
-  font-size: 20px;
-  padding: 8px 35px;
-  border-radius: 10px;
-  margin: 12px auto;
-  cursor: pointer;
-  border-color: transparent;
-  width: 100vw;
-  justify-self: center;
-}
-
 #backup:hover{
   background-color: #424242;
 }
