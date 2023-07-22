@@ -48,6 +48,8 @@
   margin: 12px auto;
   cursor: pointer;
   border-color: transparent;
+  width: 100vw;
+  justify-self: center;
 }
 
 #backup:hover{
