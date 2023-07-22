@@ -53,6 +53,7 @@
             window.location.href = 'anotacoes.html';
         });
 
+
         document.querySelector("#salvarBtn").addEventListener("click", async () => {
             const titulo = document.querySelector("#titulo").value;
             const anotacao = document.querySelector("#anotacao").value;
@@ -69,6 +70,23 @@
                 window.location.href = "/anotacoes.html";
             } else {
                 alert("Erro ao atualizar a anotação");
+            }
+        });
+
+
+        document.querySelector("#excluir").addEventListener("click", async () => {
+            const resposta = await fetch(`/excluir/${idAnotacao}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+            const dados = await resposta.json();
+            if (dados.message === "Anotação excluída com sucesso!") {
+                alert("Anotação excluída");
+                window.location.href = "/anotacoes.html";
+            } else {
+                alert("Erro ao excluir a anotação");
             }
         });
 
