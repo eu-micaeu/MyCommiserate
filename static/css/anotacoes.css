@@ -15,9 +15,10 @@
 
 .v65_15 {
   border-radius: 10px;
-  padding-top: 20px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .repeated-buttons {
