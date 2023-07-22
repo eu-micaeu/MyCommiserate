@@ -1,224 +1,70 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-size: 14px;
-}
+@import url('./global.css');
 
 .v74_2 {
   width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
+  text-align: center;
+  background: rgba(255, 255, 255);
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .v74_3 {
-  width: 504px;
-    height: 275px;
-    background: rgba(0, 0, 0, 1);
-    opacity: 1;
-    position: absolute;
-    top: 258px;
-    left: 33.7%;
-    border-radius: 10px;
-    overflow: hidden;
+  background: rgba(0, 0, 0);
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 30px 40px;
 }
 
-.v74_4 {
-  width: 164px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 308px;
-  left: 35%;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
-}
-
-.v74_7 {
-  width: 184px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 368px;
-  left: 35%;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
-}
-
-.v74_14 {
-  width: 225px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 428px;
-  left: 35%;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
-}
-
-.v74_8 {
-
-  width: 275px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-
-  font-family: "Cascadia Mono", monospace;
+.v74_31,
+.v74_32,
+.v74_33 {
+  color: rgba(255, 255, 255);
+  font-size: 25px;
   font-weight: normal;
-  font-size: 30px;
-  opacity: 1;
+  text-align: left;
+  margin: 15px;
+}
+
+.v74_8-input,
+.v74_9-input,
+.v74_15-input {
+  width: 100%;
+  color: rgba(255, 255, 255);
+  font-size: 25px;
   text-align: left;
   border-radius: 10px;
-  outline: none;
-  background-color: transparent;
-
-
-  top: 308px;
-  left: 47%;
-  border-style: groove;
-  border-color: white;
-}
-
-.v74_9 {
-  
-  top: 363px;
-  left: 47%;
-  width: 275px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-
-  font-family: "Cascadia Mono", monospace;
-  font-weight: normal;
-  font-size: 30px;
-  opacity: 1;
-  text-align: left;
-  border-radius: 10px;
-  outline: none;
   background-color: transparent;
   border-style: groove;
   border-color: white;
 }
 
-.v74_15 {
-  
-  top: 423px;
-  left: 51%;
-  
-  width: 211px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-
-  font-family: "Cascadia Mono", monospace;
-  font-weight: normal;
-  font-size: 30px;
-  opacity: 1;
-  text-align: left;
-  border-radius: 10px;
-  outline: none;
-  background-color: transparent;
-  border-style: groove;
-  border-color: white;
-}
-
-.v74_10 {
-  width: 201px;
-  height: 151px;
-  margin-top: 8.3px;
-  background-image: url("../images/v23_33.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  overflow: hidden;
-}
-
-.v74_13 {
-  width: 98.5%;
-  height: 24px;
-  background: rgba(0, 0, 0, 1);
-  opacity: 1;
-  position: absolute;
-  top: 210px;
-  left: 10px;
-  overflow: hidden;
-}
-
-.v74_18 {
-  width: 199px;
-  height: 54px;
-  background: rgba(0, 0, 0, 1);
-  opacity: 1;
-  position: absolute;
-  top: 550px;
-  left: 43.2%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
+.buttons{
+  margin: 0 auto;
+  padding-top: 25px;
 }
 
 .v74_19 {
-  width: 177px;
-  color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 555px;
-  left: 43.5%;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
-  background-color: transparent;
-  border: none;
+  color: rgba(255, 255, 255);
+  background-color: black;
+  font-size: 25px;
+  padding: 8px 35px;
+  border-color: transparent;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.v74_20 {
-  width: 450px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 610px;
-  left: 549px;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 13px;
-  opacity: 1;
-  text-align: left;
-}
+@media screen and (max-device-width: 768px) {
+  .v74_3{
+    margin: 50px;
+  }
 
-.v74_21 {
-  width: 15px;
-  height: 14px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 610px;
-  left: 515px;
-  border: 1px solid rgba(0, 0, 0, 1);
-  overflow: hidden;
-}
-
-.v74_22 {
-  width: 156px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 220px;
-  left: 44.7%;
-  font-family: Cascadia Mono;
-  font-weight: Regular;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
+  .v74_31, 
+  .v74_32,
+  .v74_33,
+  .v74_19,
+  .v74_8-input, 
+  .v74_9-input,
+  .v74_15-input{
+    font-size: 35px;
+  }
 }

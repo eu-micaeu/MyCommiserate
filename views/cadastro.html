@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
     <link href="..\static\css\cadastro.css" rel="stylesheet" />
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
@@ -14,20 +13,30 @@
 
 <body>
     <div class="v74_2">
-        <div class="v74_3"></div><span class="v74_4">Usuário:</span><span class="v74_7">Senha:
-        </span><span class="v74_14">Conf. Senha:</span>
-        <input class="v74_8" id="usuario"></input>
-        <input class="v74_9" type="password" id="senha"></input>
-        <input class="v74_15" type="password" id="senhaconfirmada"></input>
-        <center>
-            <div class="v74_10" onclick="window.location.href='/'"></div>
-        </center>
-        <div class="v74_18"></div>
-        <button class="v74_19">Confirmar</button>
+        <img src="../static/images/v23_33.png" onclick="window.location.href='/'" alt="logo"> 
     </div>
 
+    <div class="v74_3">
+        <div class="v74_31">
+          <label for="usuario">Usuário:</label> <br />
+          <input type="text" class="v74_8-input" id="usuario" /> <br />
+        </div>
+        <div class="v74_32">
+            <label for="senha">Senha:</label> <br />
+            <input type="password" class="v74_9-input" id="senha" />
+          </div>
+        <div class="v74_33">
+          <label for="senha">Conf. Senha:</label> <br />
+          <input type="password" class="v74_15-input" id="senhaconfirmada" />
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="v74_19" id="cadastrar">Cadastrar</button>
+      </div>
+
     <script>
-        document.querySelector(".v74_19").addEventListener("click", async () => {
+        document.querySelector("#cadastrar").addEventListener("click", async () => {
             const username = document.querySelector("#usuario").value;
             const password = document.querySelector("#senha").value;
             const passwordconfirmed = document.querySelector("#senhaconfirmada").value;

@@ -3,32 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
     <link href="..\static\css\home.css" rel="stylesheet" />
     <title>MyCommiserate</title>
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
         crossorigin="anonymous"></script>
-
 </head>
 
 
 <body>
     <div class="v23_18">
-        <center>
-            <div class="v23_19" onclick="window.location.href='/'"></div>
-        </center>
-        <div class="v23_20"></div>
-        <button class="v23_31">Anotações</button>
-        <div class="v23_23"></div>
-        <div class="v23_24"></div>
-        <div class="v23_25"></div>
-        <div class="v23_26"></div>
-        <textarea class="v23_27" placeholder="Escreva aqui..." rows="4" cols="50" id="anotacao"></textarea>
-
-        <input type="text" class="v23_28" placeholder="Título:" id="titulo">
-        <button class="v23_29" id="salvarBtn">Salvar</button>
+        <div class="v23_19">
+            <img src="../static/images/v23_33.png" alt="logo" onclick="window.location.href='/anotacoes.html'"> 
+        </div>
+        <hr class="line"/>
+        <div class="v23_30">
+            <button class="v23_31">Anotações</button>
+        </div>
+        <div class="notes">
+            <label for="titulo" class="labelTitulo">Título:</label>
+            <input type="text" class="v23_28" id="titulo">
+            <label for="anotacao" class="labelTitulo">Anotação:</label>
+            <textarea class="v23_27" rows="10" id="anotacao"></textarea>
+            <button class="v23_29" id="salvarBtn">Salvar</button>
+        </div>
     </div>
     <script>
 

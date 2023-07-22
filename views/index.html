@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css?family=Cascadia+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="..\static\css\index.css" />
   <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
@@ -15,25 +14,28 @@
 
 <body>
   <div class="v1_2">
-    <div class="v23_30"></div>
-    <span class="v23_31">Usuário:</span>
-    <input type="text" class="v27_47-input" id="usuario" />
-    <span class="v23_32">Senha:</span>
-    <input type="password" class="v27_48-input" id="senha" />
-    <div class="v23_33"></div>
-    <div class="v23_34"></div>
-    <center>
-      <div class="v23_35"></div>
-    </center>
-    <div class="v23_36"></div>
-    <button class="v23_37">Entrar</button>
-    <div class="v23_3612"></div>
-    <button class="v23_372">Cadastro</button>
-
+    <img src="../static/images/v23_33.png" alt="logo"> 
   </div>
+
+  <div class="v23_30">
+    <div class="v23_31">
+      <label for="usuario">Usuário:</label> <br />
+      <input type="text" class="v27_47-input" id="usuario" /> <br />
+    </div>
+    <div class="v23_32">
+      <label for="senha">Senha:</label> <br />
+      <input type="password" class="v27_48-input" id="senha" />
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button class="v23_37" id="entrar">Entrar</button>
+    <button class="v23_37" id="cadastro">Cadastro</button>
+  </div>
+
   <script>
 
-    document.querySelector(".v23_37").addEventListener("click", async () => {
+    document.querySelector("#entrar").addEventListener("click", async () => {
       const username = document.querySelector("#usuario").value;
       const password = document.querySelector("#senha").value;
       const response = await fetch("/login", {
@@ -61,7 +63,7 @@
         alert("Usuário ou senha incorretos");
       }
     })
-    document.querySelector(".v23_372").addEventListener("click", async () => {
+    document.querySelector("#cadastro").addEventListener("click", async () => {
       window.location.href = "cadastro.html";
     })
 
