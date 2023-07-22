@@ -15,14 +15,32 @@ type User struct {
 // Handlers para as operações relacionadas aos usuários
 func (u *User) GetUserByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Implemente a lógica para obter o usuário por ID...
+		id := c.Param("id")
+		var user User
+		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = ?", id)
+		err := row.Scan(&user.ID_User, &user.Username, &user.Password)
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
+			return
+		}
+		c.JSON(200, user)
 	}
 }
 
 func (u *User) GetUserByUsername(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		// Implemente a lógica para obter o usuário por nome de usuário...
+		username := c.Param("username")
+		var id int 
+		row := db.QueryRow("SELECT id_usuario FROM usuarios WHERE usuario = ?", username)
+		err := row.Scan(&id)
+		if err != nil {
+			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
+			return
+		}
+		c.JSON(200, gin.H{"id": id})
 	}
 }
+
+
 
 // Implemente outros handlers para operações relacionadas aos usuários...

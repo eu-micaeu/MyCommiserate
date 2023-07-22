@@ -24,6 +24,7 @@ func main() {
 	routes.AnotRoutes(r, db)
 
 	// Resto do seu código para servir arquivos estáticos e iniciar o servidor...
+	r.Run()
 }
 
 // Função para servir os arquivos estáticos e iniciar o servidor...
