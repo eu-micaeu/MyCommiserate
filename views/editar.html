@@ -58,7 +58,7 @@
             const titulo = document.querySelector("#titulo").value;
             const anotacao = document.querySelector("#anotacao").value;
             const resposta = await fetch(`/atualizar/${idAnotacao}`, {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
