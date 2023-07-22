@@ -39,6 +39,21 @@
   font-family: 'Poppins', sans-serif;
 }
 
+#backup{
+  color: rgba(255, 255, 255);
+  background-color: #000;
+  font-size: 20px;
+  padding: 8px 35px;
+  border-radius: 10px;
+  margin: 12px auto;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+#backup:hover{
+  background-color: #424242;
+}
+
 @media screen and (max-device-width: 768px){
   .repeated-buttons{
     grid: auto / auto auto
