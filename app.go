@@ -26,7 +26,6 @@ type Anot struct {
 }
 
 func main() {
-
 	server()
 }
 
@@ -54,6 +53,8 @@ func server() {
 	r := gin.Default()
 	r.Use(cors.Default())
 
+	//////////////////////////////////GETS////////////////////////////////////
+
 	// GET - USUARIO ATRAVÉS DO ID QUE IRÁ RETORNAR O ID, NOME DO USUARIO, SENHA
 	r.GET("/users/:id", func(c *gin.Context) {
 		id := c.Param("id")
@@ -80,13 +81,12 @@ func server() {
 		c.JSON(200, gin.H{"id": id})
 	})
 
+	// GET - ANOTACOES ATRAVÉS DO ID QUE IRÁ RETORNAR O ID, TITULO, CONTEUDO DA ANOTACAO DE DETERMINADO USUARIO
 	r.GET("/anotacoes/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
-		// Crie um slice para armazenar as anotações
 		var anotacoes []Anot
 
-		// Execute a consulta ao banco de dados
 		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_usuario = ?", id)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
@@ -94,7 +94,6 @@ func server() {
 		}
 		defer rows.Close()
 
-		// Percorra as linhas retornadas e adicione as anotações ao slice
 		for rows.Next() {
 			var anot Anot
 			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
@@ -105,7 +104,6 @@ func server() {
 			anotacoes = append(anotacoes, anot)
 		}
 
-		// Verifique se houve algum erro durante o loop ou se não foram encontradas anotações
 		if err := rows.Err(); err != nil {
 			c.JSON(404, gin.H{"message": "Anotações não encontradas"})
 			return
@@ -127,7 +125,7 @@ func server() {
 		c.JSON(200, anot)
 	})
 	
-
+	// GET - TODOS OS USUARIOS DO BANCO
 	r.GET("/users", func(c *gin.Context) {
 		var usuarios []User
 		rows, err := db.Query("SELECT id_usuario, usuario, senha FROM usuarios")
@@ -148,6 +146,7 @@ func server() {
 		c.JSON(200, usuarios)
 	})
 
+	// GET - TODOS AS ANOTACOES DO BANCO
 	r.GET("/anotacoes", func(c *gin.Context) {
 		var anotacoes []Anot
 		rows, err := db.Query("SELECT id_anotacao, titulo, anotacao FROM anotacoes")
@@ -167,6 +166,8 @@ func server() {
 		}
 		c.JSON(200, anotacoes)
 	})
+
+	//////////////////////////////////POSTS////////////////////////////////////
 
 	r.POST("/users", func(c *gin.Context) {
 		var newUser User
@@ -240,6 +241,8 @@ func server() {
 		c.JSON(200, gin.H{"message": "Anotação atualizada com sucesso!", "anot": anot})
 	})
 
+	//////////////////////////////////DELETES////////////////////////////////////
+
 	r.DELETE("/excluir/:id_anotacao", func(c *gin.Context) {
 		idAnotacao := c.Param("id_anotacao")
 
@@ -253,12 +256,8 @@ func server() {
 		c.JSON(200, gin.H{"message": "Anotação excluída com sucesso!"})
 	})
 	
-
-	
-
 	r.LoadHTMLGlob("views/*.html") 
 
-	
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
