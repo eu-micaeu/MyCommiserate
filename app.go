@@ -226,7 +226,7 @@ func server() {
 			return
 		}
 		anot.ID_Anot = int(id)
-		c.JSON(200, gin.H{"message": "Anotação criado com sucesso!", "anot": anot})
+		c.JSON(200, gin.H{"message": "Anotação criada com sucesso!", "anot": anot})
 	})
 
 	r.POST("/atualizar/:id_anotacao", func(c *gin.Context) {
