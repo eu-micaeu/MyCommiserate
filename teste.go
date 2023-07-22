@@ -1,14 +1,11 @@
 package main
 
 import (
-	"database/sql"
-	"net/http"
-	"path/filepath"
 
 	"github.com/gin-gonic/gin"
 	"github.com/eu-micaeu/MyCommiserate/routes"
 	"github.com/eu-micaeu/MyCommiserate/middlewares"
-	"github.com/eu-micaeu/MyCommiserate/database"
+	"github.com/eu-micaeu/MyCommiserate/internal/database"
 )
 
 func main() {
