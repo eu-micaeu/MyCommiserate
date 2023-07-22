@@ -25,9 +25,9 @@ type Anot struct {
 	Anotacao string `json:"anotacao"`
 }
 
-func main() {
-	server()
-}
+//func main() {
+//	server()
+//}
 
 func server() {
 	dbUser := "root"
