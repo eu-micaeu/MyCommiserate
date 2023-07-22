@@ -13,7 +13,7 @@ type Anot struct {
 }
 
 // Handlers para as operações relacionadas às anotações
-func (u *User) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
+func (u *Anot) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
 		var anot Anot
@@ -27,7 +27,7 @@ func (u *User) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *User) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
+func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
 
@@ -58,4 +58,83 @@ func (u *User) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, anotacoes)
 	}
 }
+
+func (u *Anot) GetAllAnnotations(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var anotacoes []Anot
+		rows, err := db.Query("SELECT id_anotacao, titulo, anotacao FROM anotacoes")
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			var anot Anot
+			err := rows.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
+				return
+			}
+			anotacoes = append(anotacoes, anot)
+		}
+		c.JSON(200, anotacoes)
+	}
+}
+
+func (u *Anot) PostAnnotation(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id_usuario := c.Param("id_usuario")
+		var anot Anot
+		if err := c.BindJSON(&anot); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
+			return
+		}
+		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo) VALUES (?, ?, ?)", id_usuario, anot.Anotacao, anot.Titulo)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
+			return
+		}
+		id, err := result.LastInsertId()
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
+			return
+		}
+		anot.ID_Anot = int(id)
+		c.JSON(200, gin.H{"message": "Anotação criada com sucesso!", "anot": anot})
+	}
+}
+
+func (u *Anot) PutAnnotation(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		idAnotacao := c.Param("id_anotacao")
+		var anot Anot
+		if err := c.BindJSON(&anot); err != nil {
+			c.JSON(400, gin.H{"message": "Erro ao atualizar anotação"})
+			return
+		}
+		_, err := db.Exec("UPDATE anotacoes SET titulo = ?, anotacao = ? WHERE id_anotacao = ?", anot.Titulo, anot.Anotacao, idAnotacao)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao atualizar anotação"})
+			return
+		}
+		c.JSON(200, gin.H{"message": "Anotação atualizada com sucesso!", "anot": anot})
+	}
+}
+
+func (u *Anot) DeleteAnnotation(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		idAnotacao := c.Param("id_anotacao")
+
+		// Realiza a operação DELETE no banco de dados usando o ID fornecido.
+		_, err := db.Exec("DELETE FROM anotacoes WHERE id_anotacao = ?", idAnotacao)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao excluir anotação"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Anotação excluída com sucesso!"})
+	}
+}
+
+
 

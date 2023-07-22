@@ -19,7 +19,7 @@ Para executar o aplicativo, siga estas etapas:
 3. Em seguida, execute o seguinte comando para iniciar o servidor:
 
    ```shell
-   go run app.go
+   go run main.go
    ```
 4. O servidor e o site será executado localmente na porta 8080.
 
