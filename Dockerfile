@@ -13,7 +13,6 @@ COPY handlers ./handlers
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY main.go ./
-COPY manifest.json ./
 
 
 # Build do executável
