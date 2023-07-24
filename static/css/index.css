@@ -48,6 +48,11 @@
   border-color: transparent;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: #424242;
 }
 
 @media screen and (max-device-width: 768px) {
