@@ -5,6 +5,7 @@ FROM golang:1.20
 WORKDIR /build
 
 COPY go.mod go.sum ./
+COPY .env ./
 COPY static ./static
 COPY views ./views
 COPY internal ./internal
@@ -12,6 +13,7 @@ COPY handlers ./handlers
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY main.go ./
+
 
 # Build do executável
 RUN go build -o main
