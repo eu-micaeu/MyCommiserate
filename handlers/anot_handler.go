@@ -89,7 +89,7 @@ func (u *Anot) PostAnnotation(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
 			return
 		}
-		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo) VALUES (?, ?, ?)", id_usuario, anot.Anotacao, anot.Titulo)
+		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo, data_hora) VALUES (?, ?, ?, DATE_SUB(NOW(), INTERVAL 3 HOUR))", id_usuario, anot.Anotacao, anot.Titulo)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
 			return
