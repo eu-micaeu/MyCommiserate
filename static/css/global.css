@@ -22,3 +22,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+textarea{
+  resize: none;
+}
+
+.bg-black{
+  background-color: black;
+}

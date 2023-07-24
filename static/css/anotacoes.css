@@ -1,10 +1,10 @@
 @import url('./global.css');
 
-.v65_2 {
+.main {
   background: rgba(255, 255, 255, 1);
 }
 
-.v65_3{
+.logoContainer{
   text-align: center;
 }
 
@@ -13,7 +13,7 @@
   margin-bottom: 15px;
 }
 
-.v65_15 {
+.notesContainer {
   border-radius: 10px;
   margin-top: 20px;
   display: flex;

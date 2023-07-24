@@ -1,6 +1,6 @@
 @import url('./global.css');
 
-.v74_2 {
+.logoContainer {
   width: 100%;
   text-align: center;
   background: rgba(255, 255, 255);
@@ -8,16 +8,16 @@
   margin-bottom: 30px;
 }
 
-.v74_3 {
+.formContainer {
   background: rgba(0, 0, 0);
   border-radius: 10px;
   margin: 0 auto;
   padding: 30px 40px;
 }
 
-.v74_31,
-.v74_32,
-.v74_33 {
+.userContainer,
+.passwdContainer,
+.cpasswdContainer {
   color: rgba(255, 255, 255);
   font-size: 25px;
   font-weight: normal;
@@ -25,9 +25,9 @@
   margin: 15px;
 }
 
-.v74_8-input,
-.v74_9-input,
-.v74_15-input {
+.userInput,
+.passwdInput,
+.cpasswdInput {
   width: 100%;
   color: rgba(255, 255, 255);
   font-size: 25px;
@@ -38,12 +38,12 @@
   border-color: white;
 }
 
-.buttons{
+.btnContainer{
   margin: 0 auto;
   padding-top: 25px;
 }
 
-.v74_19 {
+.btn {
   color: rgba(255, 255, 255);
   background-color: black;
   font-size: 25px;
@@ -54,17 +54,17 @@
 }
 
 @media screen and (max-device-width: 768px) {
-  .v74_3{
+  .formContainer{
     margin: 50px;
   }
 
-  .v74_31, 
-  .v74_32,
-  .v74_33,
-  .v74_19,
-  .v74_8-input, 
-  .v74_9-input,
-  .v74_15-input{
+  .userContainer,
+  .passwdContainer,
+  .cpasswdContainer
+  .btn,
+  .userInput,
+  .passwdInput,
+  .cpasswdInput{
     font-size: 35px;
   }
 }

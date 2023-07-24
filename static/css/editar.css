@@ -1,12 +1,12 @@
 @import url('./global.css');
 
-.v23_18 {
+.main {
   width: 100%;
   height: 650px;
   background: rgba(255, 255, 255, 1);
 }
 
-.v23_19{
+.logoContainer{
   width: 100%;
   text-align: center;
   background: rgba(255, 255, 255);
@@ -15,7 +15,7 @@
   
 }
 
-.v23_19{
+.logoContainer img{
   cursor: pointer;
 }
 
@@ -24,18 +24,18 @@
   margin-bottom: 15px;
 }
 
-.v23_20 {
+/* .v23_20 {
   width: 58px;
   height: 58px;
   background: rgba(255, 255, 255, 1);
-}
+} */
 
-.v23_30{
+.titleContainer{
   display: flex;
   justify-content: center;
 }
 
-.v23_31 {
+.btn {
   color: rgba(255, 255, 255);
   background-color: #000;
   font-size: 20px;
@@ -47,7 +47,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.v23_31:hover{
+.btn:hover{
   background-color: #424242;
 }
 
@@ -58,7 +58,7 @@
   padding: 30px;
 }
 
-.v23_27, .v23_28, .v23_29{
+.textNote, .titleInput{
   margin: 10px;
   border-radius: 5px;
   padding: 10px;
@@ -69,38 +69,27 @@ textarea{
   resize: none;
 }
 
-.v23_27 {
+.textNote {
   background-color: #000;
   color: rgb(255, 255, 255);
   font-size: 20px;
   border: none;
 }
 
-.labelTitulo{
+.labelTitle{
   font-size: 25px;
   padding-left: 10px;
 }
 
-.v23_28 {
+.titleInput {
   background-color: #000;
   color: rgb(255, 255, 255);
   font-size: 25px;
   border: none;
 }
 
-.v23_29 {
-  color: rgba(255, 255, 255);
-  background-color: #000;
-  font-size: 20px;
-  padding: 8px 35px;
-  border-radius: 10px;
-  margin: 12px auto;
-  cursor: pointer;
-  border-color: transparent;
-}
-
 @media screen and (max-device-width: 768px){
-  .v23_31, .labelTitulo, .v23_29{
+  .btn, .labelTitulo{
     font-size: 30px;
   }
 }

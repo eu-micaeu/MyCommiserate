@@ -11,23 +11,22 @@
         crossorigin="anonymous"></script>
 </head>
 
-
 <body>
-    <div class="v23_18">
-        <div class="v23_19">
+    <div class="main">
+        <div class="logoContainer">
             <img src="../static/images/v23_33.png" alt="logo" onclick="window.location.href='/anotacoes.html'"> 
         </div>
         <hr class="line"/>
-        <div class="v23_30">
-            <button class="v23_31">Anotações</button>
+        <div class="titleContainer">
+            <button class="btn" id="notesBtn">Anotações</button>
         </div>
         <div class="notes">
-            <label for="titulo" class="labelTitulo">Título:</label>
-            <input type="text" class="v23_28" id="titulo">
-            <label for="anotacao" class="labelTitulo">Anotação:</label>
-            <textarea class="v23_27" rows="10" id="anotacao"></textarea>
-            <button class="v23_29" id="salvarBtn">Salvar</button>
-            <button class="v23_29" id="excluir">Excluir</button>
+            <label for="titulo" class="labelTitle">Título:</label>
+            <input type="text" class="titleInput" id="titulo">
+            <label for="anotacao" class="labelTitle">Anotação:</label>
+            <textarea class="textNote" rows="10" id="anotacao"></textarea>
+            <button class="btn" id="salvarBtn">Salvar</button>
+            <button class="btn" id="excluir">Excluir</button>
         </div>
     </div>
     <script>
@@ -49,7 +48,7 @@
         buscarDadosAnotacao();
 
 
-        document.querySelector('.v23_31').addEventListener('click', function () {
+        document.querySelector('#notesBtn').addEventListener('click', function () {
             window.location.href = 'anotacoes.html';
         });
 
