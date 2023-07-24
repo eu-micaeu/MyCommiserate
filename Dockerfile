@@ -12,6 +12,7 @@ COPY handlers ./handlers
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY main.go ./
+COPY .env ./etc/secrets/
 
 
 # Build do executável
