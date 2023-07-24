@@ -4,6 +4,7 @@ FROM golang:1.20
 # Defina o diretório de trabalho como /build
 WORKDIR /build
 
+# Copie os arquivos necessários para o diretório de trabalho
 COPY go.mod go.sum ./
 COPY static ./static
 COPY views ./views
@@ -12,6 +13,7 @@ COPY handlers ./handlers
 COPY middlewares ./middlewares
 COPY routes ./routes
 COPY main.go ./
+COPY /etc/secrets/.env ./
 
 # Build do executável
 RUN go build -o main
