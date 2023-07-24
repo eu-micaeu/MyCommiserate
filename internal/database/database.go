@@ -8,11 +8,11 @@ import (
 )
 
 func NewDB() (*sql.DB, error) {
-	dbUser := "root"
-	dbPassword := "ajCPqarJKpcy6cdvrAHF"
-	dbHost := "containers-us-west-83.railway.app"
-	dbPort := "7416"
-	dbName := "mycommiserate"
+	dbUser := "DB_USER"
+	dbPassword := "DB_PASSWORD"
+	dbHost := "DB_HOST"
+	dbPort := "DB_PORT"
+	dbName := "DB_NAME"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
 	db, err := sql.Open("mysql", dsn)
