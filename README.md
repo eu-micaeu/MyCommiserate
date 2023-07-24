@@ -8,5 +8,5 @@ Bem-vindo(a) ao Site de Anotações Básicas! Este é um simples aplicativo web 
 
 ### Ainda em desenvolvimento!
 
-Ele está rodando na seguinte URL: mycommiserate.com
+Ele está rodando na seguinte URL: www.mycommiserate.com
 ### Pode haver alguns problemas durante o seu desenvolvimento, sendo assim, o site poderá ficar instável. 
