@@ -10,7 +10,6 @@ document.querySelector("#entrar").addEventListener("click", async () => {
     });
     const data = await response.json();
     if (data.message === "Login efetuado com sucesso!") {
-        // Armazena o usuário logado no localStorage
         const response = await fetch(`/users/usuario/${username}`);
         const data = await response.json();
 
@@ -20,7 +19,6 @@ document.querySelector("#entrar").addEventListener("click", async () => {
             localStorage.setItem("loggedInUserID", data.id);
             window.location.href = "home.html";
         }
-        window.location.href = "home.html";
     } else {
         alert("Usuário ou senha incorretos");
     }
