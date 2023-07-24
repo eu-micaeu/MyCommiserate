@@ -5,7 +5,7 @@ FROM golang:1.20
 WORKDIR /build
 
 COPY go.mod go.sum ./
-# COPY .env ./
+COPY .env ./
 COPY static ./static
 COPY views ./views
 COPY internal ./internal
