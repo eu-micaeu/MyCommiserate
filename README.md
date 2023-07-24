@@ -6,4 +6,4 @@
 
 Bem-vindo(a) ao Site de Anotações Básicas! Este é um simples aplicativo web desenvolvido para ajudar você a fazer anotações rápidas e organizadas.
 
-# Ainda em desenvolvimento
+### Ainda em desenvolvimento!
