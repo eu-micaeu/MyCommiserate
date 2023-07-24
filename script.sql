@@ -15,19 +15,11 @@ CREATE TABLE anotacoes (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE backup_anotacoes (
-    id_anotacao int,
-    id_usuario int,
-    titulo TEXT,
-    anotacao TEXT
-);
+ALTER TABLE usuarios
+ADD COLUMN data_adicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
-DELIMITER //
-CREATE TRIGGER backup_anotacoes_trigger
-BEFORE DELETE ON anotacoes
-FOR EACH ROW
-BEGIN
-    INSERT INTO backup_anotacoes VALUES (OLD.id_anotacao, OLD.id_usuario, OLD.titulo, OLD.anotacao);
-END;//
-DELIMITER ;
+ALTER TABLE anotacoes
+ADD COLUMN data_adicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+
 
