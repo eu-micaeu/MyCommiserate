@@ -1,4 +1,4 @@
-function showImageOverlay() {
+function showImageOverlay(imagePath) {
     const overlay = document.createElement("div");
     overlay.id = "overlay";
     overlay.style.display = "flex";
@@ -18,8 +18,7 @@ function showImageOverlay() {
     imageContainer.style.textAlign = "center";
 
     const image = document.createElement("img");
-    const imageURL = new URL("../static/images/cadastro.png", window.location.href);
-    image.src = imageURL.href;
+    image.src = imagePath; // Usando o caminho da imagem recebido como parâmetro
     image.style.maxWidth = "80%";
     image.style.maxHeight = "80%";
 
@@ -35,6 +34,7 @@ function hideImageOverlay() {
     }
 }
 
+
 document.querySelector("#cadastrar").addEventListener("click", async () => {
     const username = document.querySelector("#usuario").value;
     const password = document.querySelector("#senha").value;
@@ -42,7 +42,7 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
 
     if (password !== passwordconfirmed) {
         alert("Confirmação da senha e senha estão diferentes.");
-        return; 
+        return;
     }
 
     const response = await fetch("/user", {
@@ -63,12 +63,12 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
             alert("Usuário não encontrado");
         } else {
             localStorage.setItem("loggedInUserID", dataUser.id);
-            showImageOverlay()
+            showImageOverlay("../static/images/cadastro.png");
             setTimeout(function () {
                 window.location.href = "/";
             }, 3500);
         }
     } else {
-        alert("Dados incorretos");
+        showImageOverlay("../static/images/erro.png");
     }
 });
