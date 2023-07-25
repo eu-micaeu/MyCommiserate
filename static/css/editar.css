@@ -88,6 +88,14 @@ textarea{
   border: none;
 }
 
+#excluir{
+  background-color: red;
+}
+
+#excluir:hover{
+  background-color: rgb(145, 0, 0);
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;
