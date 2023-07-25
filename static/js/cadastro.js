@@ -1,3 +1,40 @@
+function showImageOverlay() {
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+
+    overlay.addEventListener("click", hideImageOverlay);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.id = "image-container";
+    imageContainer.style.textAlign = "center";
+
+    const image = document.createElement("img");
+    const imageURL = new URL("../static/images/cadastro.png", window.location.href);
+    image.src = imageURL.href;
+    image.style.maxWidth = "80%";
+    image.style.maxHeight = "80%";
+
+    imageContainer.appendChild(image);
+    overlay.appendChild(imageContainer);
+    document.body.appendChild(overlay);
+}
+
+function hideImageOverlay() {
+    const overlay = document.getElementById("overlay");
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
 document.querySelector("#cadastrar").addEventListener("click", async () => {
     const username = document.querySelector("#usuario").value;
     const password = document.querySelector("#senha").value;
@@ -5,7 +42,7 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
 
     if (password !== passwordconfirmed) {
         alert("Confirmação da senha e senha estão diferentes.");
-        return; // Encerra a função caso as senhas não sejam iguais
+        return; 
     }
 
     const response = await fetch("/user", {
@@ -19,18 +56,18 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
     const data = await response.json();
 
     if (data.message === "Usuário criado com sucesso!") {
-        // Armazena o usuário logado no localStorage
         const responseUser = await fetch(`/users/usuario/${username}`);
         const dataUser = await responseUser.json();
 
         if (responseUser.status === 404) {
             alert("Usuário não encontrado");
         } else {
-            // Armazena o ID do usuário logado no localStorage
             localStorage.setItem("loggedInUserID", dataUser.id);
-            window.location.href = "/";
+            showImageOverlay()
+            setTimeout(function () {
+                window.location.href = "/";
+            }, 3500);
         }
-        alert("Cadastro feito");
     } else {
         alert("Dados incorretos");
     }
