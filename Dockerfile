@@ -1,5 +1,5 @@
-# Estágio de build
-FROM golang:1.20 AS build
+# Use a versão mais recente do Golang disponível no Docker Hub
+FROM golang:1.20
 
 # Defina o diretório de trabalho como /build
 WORKDIR /build
@@ -17,16 +17,6 @@ COPY ads.txt ./
 
 # Build do executável
 RUN go build -o main
-
-
-# Estágio de criação da imagem final
-FROM golang:1.20
-
-# Copie o binário do estágio de build para o novo diretório de trabalho
-COPY --from=build /build/main /app/
-
-# Defina o diretório de trabalho para /app
-WORKDIR /app
 
 # Exponha a porta 8080 para acesso externo
 EXPOSE 8080
