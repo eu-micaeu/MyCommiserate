@@ -41,6 +41,9 @@ function hideImageOverlay() {
 
 var selectedAnotacaoID = localStorage.getItem("selectedAnotacaoID");
 var idAnotacao = selectedAnotacaoID;
+var pastasSelect = document.getElementById("selectedDirID");
+var idPasta = pastasSelect;
+
 
 async function buscarDadosAnotacao() {
     try {
@@ -76,22 +79,21 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
         showImageOverlay();
         setTimeout(function () {
             window.location.href = "/pastas.html";
-        }, 3500); 
+        }, 3500);
     } else {
         alert("Erro ao atualizar a anotação");
     }
-
 });
 
 document.querySelector("#excluir").addEventListener("click", async () => {
-    const resposta = await fetch(`/excluir/${idAnotacao}`, {
-        method: "DELETE",
+    const resposta = await fetch(`/pastas/excluir/${idAnotacao}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
     });
     const dados = await resposta.json();
-    if (dados.message === "Anotação excluída com sucesso!") {
+    if (dados.message === "Anotação retirada com sucesso!") {
         alert("Anotação excluída");
         window.location.href = "/pastas.html";
     } else {
@@ -100,8 +102,7 @@ document.querySelector("#excluir").addEventListener("click", async () => {
 });
 
 function fillPastasSelect(pastas) {
-    var pastasSelect = document.getElementById("pastasSelect");
-
+    var pastasSelect = document.getElementById("selectedDirID");
     for (var i = 0; i < pastas.length; i++) {
         var option = document.createElement("option");
         option.value = pastas[i].id_pasta;
