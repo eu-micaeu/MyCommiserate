@@ -96,6 +96,17 @@ textarea{
   background-color: rgb(145, 0, 0);
 }
 
+#pastasSelect{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: transparent;
+  border-style: groove;
+  border-color: rgb(0, 0, 0);
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;

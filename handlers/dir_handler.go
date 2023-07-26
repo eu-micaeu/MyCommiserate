@@ -78,3 +78,19 @@ func (u *Dir) PostDir(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Pasta criada com sucesso!", "dir": dir})
 	}
 }
+func (u *Dir) PutAnotacao(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		idDir := c.Param("id_pasta")
+		idAnotacao := c.Param("id_anotacao")
+
+		// Atualiza o campo id_pasta na tabela "anotacoes" com o ID da pasta
+		_, err := db.Exec("UPDATE anotacoes SET id_pasta = ? WHERE id_anotacao = ?", idDir, idAnotacao)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao atualizar a anotação"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Anotação atualizada com sucesso!"})
+	}
+}
+
