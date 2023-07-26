@@ -3,18 +3,18 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	//"os"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func NewDB() (*sql.DB, error) {
 
-	dbUser := "root"
-	dbPassword := "ajCPqarJKpcy6cdvrAHF"
-	dbHost := "containers-us-west-83.railway.app"
-	dbPort := "7416"
-	dbName := "mycommiserate"
+	dbUser := os.Getenv("DB_USER")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	dbHost := os.Getenv("DB_HOST")
+	dbPort := os.Getenv("DB_PORT")
+	dbName := os.Getenv("DB_NAME")
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
 	db, err := sql.Open("mysql", dsn)
