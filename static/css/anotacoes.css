@@ -59,7 +59,21 @@
   background-color: #424242;
 }
 
-.Input{
+.createFolderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 300px; /* Opcional: Defina uma largura máxima para a div */
+}
+
+.createFolderContainer input,
+.createFolderContainer button {
+  margin-bottom: 10px;
+}
+
+.createFolderContainer input{
   width: 100%;
   color: rgb(0, 0, 0);
   font-size: 25px;
@@ -67,8 +81,9 @@
   border-radius: 10px;
   background-color: transparent;
   border-style: groove;
-  border-color: white;
+  border-color: rgb(0, 0, 0);
 }
+
 
 .dirContainer {
   border-radius: 10px;
