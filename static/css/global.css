@@ -40,4 +40,8 @@ textarea{
     margin-top: 30px;
     width: 30%;
   }
+
+  textarea{
+    height: 40vh;
+  }
 }
