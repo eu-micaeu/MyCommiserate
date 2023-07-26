@@ -58,6 +58,23 @@
   justify-content: center;
 }
 
+#deleteContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.btn{
+  background-color: #ff0000;
+  color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  padding: 25px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
 
 @media screen and (max-device-width: 768px){
   .repeated-buttons{

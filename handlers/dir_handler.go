@@ -108,3 +108,23 @@ func (u *Dir) PutAnotacaoDeleteByDir(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, gin.H{"message": "Anotação retirada com sucesso!"})
 	}
 }
+
+func (u *Dir) DeleteDir(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		idDir := c.Param("id_pasta")
+
+		_, err := db.Exec("UPDATE anotacoes SET id_pasta = NULL WHERE id_pasta = ?", idDir)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao atualizar a anotação"})
+			return
+		}		
+
+		_, err = db.Exec("DELETE FROM pastas WHERE id_pasta = ?", idDir)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao excluir pasta"})
+			return
+		}
+
+		c.JSON(200, gin.H{"message": "Pasta excluída com sucesso!"})
+	}
+}

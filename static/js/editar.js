@@ -79,7 +79,7 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
         showImageOverlay();
         setTimeout(function () {
             window.location.href = "/anotacoes.html";
-        }, 3500); 
+        }, 2000); 
     } else {
         alert("Erro ao atualizar a anotação");
     }
@@ -99,18 +99,7 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
         body: JSON.stringify({ idAnotacao, selectedDirID })
     });
 
-    const dadosPasta = await respostaPasta.json();
-    if (dadosPasta.message === "Anotação atualizada com sucesso!") {
-        showImageOverlay();
-        setTimeout(function () {
-            window.location.href = "/anotacoes.html";
-        }, 3500); 
-    } else {
-        alert("Erro ao atualizar a anotação");
-    }
-
 });
-
 
 document.querySelector("#excluir").addEventListener("click", async () => {
     const resposta = await fetch(`/excluir/${idAnotacao}`, {

@@ -14,6 +14,7 @@ func DirRoutes(r *gin.Engine, db *sql.DB) {
 	r.POST("/criar/:id_usuario", dirHandler.PostDir(db))
 	r.PUT("/pastas/:id_pasta/anotacoes/:id_anotacao", dirHandler.PutAnotacao(db))
 	r.PUT("/pastas/excluir/:id_anotacao", dirHandler.PutAnotacaoDeleteByDir(db))
+	r.DELETE("/excluir_pasta/:id_pasta", dirHandler.DeleteDir(db))
 }
 
 

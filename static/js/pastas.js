@@ -38,3 +38,25 @@ function anots() {
 
 window.addEventListener("load", anots);
 
+document.querySelector("#excluir").addEventListener("click", async () => {
+    var selectedDirID = localStorage.getItem("selectedDirID");
+
+    try {
+        const resposta = await fetch(`/excluir_pasta/${selectedDirID}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        });
+
+        const dados = await resposta.json();
+        if (dados.message === "Pasta excluída com sucesso!") {
+            alert("Pasta excluída");
+            window.location.href = "/anotacoes.html";
+        } else {
+            alert("Erro ao excluir a pasta");
+        }
+    } catch (error) {
+        alert("Erro ao excluir a pasta: " + error.message);
+    }
+});

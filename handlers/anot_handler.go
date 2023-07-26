@@ -32,7 +32,7 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 
 		var anotacoes []Anot
 
-		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_usuario = ?", id)
+		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_usuario = ? ORDER BY id_anotacao DESC", id)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
 			return
