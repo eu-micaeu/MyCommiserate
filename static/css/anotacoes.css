@@ -59,6 +59,17 @@
   background-color: #424242;
 }
 
+.Input{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: transparent;
+  border-style: groove;
+  border-color: white;
+}
+
 .dirContainer {
   border-radius: 10px;
   margin-top: 20px;

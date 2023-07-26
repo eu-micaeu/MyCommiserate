@@ -45,7 +45,6 @@ function dirs() {
                 var repeatedButtonsContainer = document.querySelector(".repeated-buttons-dirs");
                 repeatedButtonsContainer.innerHTML = "";
 
-                // Verifica se a resposta contém um único objeto de pasta e, em seguida, envolve-o em uma matriz
                 if (!Array.isArray(pastas)) {
                     pastas = [pastas];
                 }
@@ -75,10 +74,10 @@ function dirs() {
                 clonedButton.textContent = "CRIAR PASTA";
                 clonedButton.style.backgroundColor = "green";
                 repeatedButtonsContainer.appendChild(clonedButton);
-
+                
 
                 clonedButton.addEventListener("click", function () {
-                    alert("AINDA EM DESENVOLVIMENTO")
+                    createFolder();
                 });
             }
         }
@@ -89,4 +88,54 @@ function dirs() {
 
 window.addEventListener("load", dirs);
 window.addEventListener("load", anots);
+
+function createFolder() {
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "folderNameInput"; // Adiciona um ID ao input para acessá-lo facilmente
+    input.style.position = "fixed";
+    input.style.bottom = "20px";
+    input.style.left = "50%";
+    input.style.transform = "translateX(-50%)";
+    input.style.zIndex = "9999";
+    input.classList.add("Input");
+
+    document.body.appendChild(input);
+
+    // Adicione o botão de confirmação
+    var btnConfirmar = document.createElement("button");
+    btnConfirmar.textContent = "Confirmar";
+    btnConfirmar.style.position = "fixed";
+    btnConfirmar.style.bottom = "50px";
+    btnConfirmar.style.left = "50%";
+    btnConfirmar.style.transform = "translateX(-50%)";
+    btnConfirmar.style.zIndex = "9999";
+    btnConfirmar.classList.add("v65_17");
+
+    btnConfirmar.addEventListener("click", function () {
+        var folderNameInput = document.getElementById("folderNameInput");
+        var folderName = folderNameInput.value;
+
+        if (folderName === null || folderName.trim() === "") {
+            return;
+        }
+
+        var id = parseInt(localStorage.getItem("loggedInUserID"));
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 201) {
+                // Pasta criada com sucesso. Atualiza a página para exibir a nova pasta.
+                window.location.reload();
+            } else if (this.readyState == 4 && this.status == 500) {
+                alert("Erro ao criar pasta. Tente novamente mais tarde.");
+            }
+        };
+
+        xhr.open("POST", "/criar_pasta", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify({ nome: folderName, id_usuario: id }));
+    });
+
+    document.body.appendChild(btnConfirmar);
+}
 
