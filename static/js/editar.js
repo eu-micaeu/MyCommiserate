@@ -37,8 +37,6 @@ function hideImageOverlay() {
     }
 }
 
-
-
 var selectedAnotacaoID = localStorage.getItem("selectedAnotacaoID");
 var idAnotacao = selectedAnotacaoID;
 
@@ -133,6 +131,13 @@ document.querySelector("#excluir").addEventListener("click", async () => {
 function fillPastasSelect(pastas) {
     var pastasSelect = document.getElementById("pastasSelect");
 
+    // Adicionar a opção vazia com o valor "-"
+    var emptyOption = document.createElement("option");
+    emptyOption.value = "-";
+    emptyOption.textContent = "-";
+    pastasSelect.appendChild(emptyOption);
+
+    // Preencher as opções das pastas
     for (var i = 0; i < pastas.length; i++) {
         var option = document.createElement("option");
         option.value = pastas[i].id_pasta;
@@ -140,6 +145,7 @@ function fillPastasSelect(pastas) {
         pastasSelect.appendChild(option);
     }
 }
+
 
 function getPastas() {
     var id = parseInt(localStorage.getItem("loggedInUserID"));
@@ -155,3 +161,7 @@ function getPastas() {
 }
 
 window.addEventListener("load", getPastas);
+
+window.addEventListener("load", function () {
+    localStorage.setItem("selectedFolderID", "-");
+});

@@ -98,7 +98,6 @@ function createFolder() {
     xhr.send(JSON.stringify({ nome: folderName, id_usuario: id }));
 }
 
-// Adiciona um evento de clique ao botão "Confirmar"
 var createFolderButton = document.querySelector(".createFolderButton");
 createFolderButton.addEventListener("click", createFolder);
 
