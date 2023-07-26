@@ -55,11 +55,6 @@ async function buscarDadosAnotacao() {
 
 buscarDadosAnotacao();
 
-document.getElementById("pastasSelect").addEventListener("change", function () {
-    var selectedFolderID = this.value;
-    localStorage.setItem("selectedFolderID", selectedFolderID);
-});
-
 document.querySelector('#notesBtn').addEventListener('click', function () {
     window.location.href = '/anotacoes.html';
 });
