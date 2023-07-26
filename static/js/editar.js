@@ -91,14 +91,14 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
 document.querySelector("#salvarBtn").addEventListener("click", async () => {
 
     // Obtenha o ID da pasta selecionada armazenado em localStorage
-    var selectedFolderID = localStorage.getItem("selectedFolderID");
+    var selectedDirID = localStorage.getItem("selectedDirID");
     // Faça a chamada PUT para atualizar a anotação e mover para a pasta selecionada
-    const resposta = await fetch(`/pastas/${selectedFolderID}/anotacoes/${idAnotacao}`, {
+    const resposta = await fetch(`/pastas/${selectedDirID}/anotacoes/${idAnotacao}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ idAnotacao, selectedFolderID })
+        body: JSON.stringify({ idAnotacao, selectedDirID })
     });
 
     const dadosPasta = await respostaPasta.json();
