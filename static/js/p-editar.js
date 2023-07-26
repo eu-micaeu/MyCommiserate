@@ -61,7 +61,7 @@ document.getElementById("pastasSelect").addEventListener("change", function () {
 });
 
 document.querySelector('#notesBtn').addEventListener('click', function () {
-    window.location.href = 'anotacoes.html';
+    window.location.href = '/anotacoes.html';
 });
 
 
