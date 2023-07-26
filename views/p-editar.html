@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="..\static\css\p-editar.css" rel="stylesheet" />
+    <title>MyCommiserate</title>
+    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="logoContainer">
+            <img src="../static/images/v23_33.png" alt="logo" onclick="window.location.href='/anotacoes.html'">
+        </div>
+        <hr class="line" />
+        <div class="titleContainer">
+            <button class="btn" id="notesBtn">Anotações</button>
+        </div>
+        <div class="notes">
+            <label for="titulo" class="labelTitle">Título:</label>
+            <input type="text" class="titleInput" id="titulo">
+            <label for="anotacao" class="labelTitle">Anotação:</label>
+            <textarea class="textNote" rows="10" id="anotacao"></textarea>
+            <button class="btn" id="salvarBtn">Salvar</button>
+            <button class="btn" id="excluir">Excluir</button>
+        </div>
+    </div>
+
+    <script src="..\static\js\p-editar.js"></script>
+
+</body>
+
+</html>

@@ -48,8 +48,8 @@ func main() {
 		c.HTML(http.StatusOK, "pastas.html", nil)
 	})
 
-	r.GET("/criar-pasta-popup.html", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "criar-pasta-popup.html", nil)
+	r.GET("/p-editar.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "p-editar.html", nil)
 	})
 
 

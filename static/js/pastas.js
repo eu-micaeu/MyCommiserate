@@ -25,7 +25,7 @@ function anots() {
                 }(annotationID));
 
                 clonedButton.addEventListener("click", function () {
-                    window.location.href = "/editar.html";
+                    window.location.href = "/p-editar.html";
                 });
 
                 repeatedButtonsContainer.appendChild(clonedButton);

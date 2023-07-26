@@ -1,0 +1,114 @@
+@import url('./global.css');
+
+.main {
+  width: 100%;
+  height: 650px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.logoContainer{
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255);
+  justify-content: center;
+  margin-bottom: 30px;
+  
+}
+
+.logoContainer img{
+  cursor: pointer;
+}
+
+.line{
+  border: 6px solid #000;
+  margin-bottom: 15px;
+}
+
+/* .v23_20 {
+  width: 58px;
+  height: 58px;
+  background: rgba(255, 255, 255, 1);
+} */
+
+.titleContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  color: rgba(255, 255, 255);
+  background-color: #000;
+  font-size: 20px;
+  padding: 8px 35px;
+  border-radius: 10px;
+  margin: 15px auto;
+  cursor: pointer;
+  border-color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover{
+  background-color: #424242;
+}
+
+.notes{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.textNote, .titleInput{
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+textarea{
+  resize: none;
+}
+
+.textNote {
+  background-color: #000;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  border: none;
+}
+
+.labelTitle{
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.titleInput {
+  background-color: #000;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  border: none;
+}
+
+#excluir{
+  background-color: red;
+}
+
+#excluir:hover{
+  background-color: rgb(145, 0, 0);
+}
+
+#pastasSelect{
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: transparent;
+  border-style: groove;
+  border-color: rgb(0, 0, 0);
+}
+
+@media screen and (max-device-width: 768px){
+  .btn, .labelTitulo{
+    font-size: 30px;
+  }
+}
