@@ -28,21 +28,6 @@
   grid-gap: 10px;
 }
 
-.dirContainer {
-  border-radius: 10px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.repeated-buttons-dirs {
-  height: auto;
-  display: grid;
-  grid: auto / auto auto auto;
-  grid-gap: 10px;
-}
-
 .v65_17 {
   background-color: #000;
   color: rgba(255, 255, 255, 1);

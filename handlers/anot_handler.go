@@ -12,7 +12,6 @@ type Anot struct {
 	Anotacao string `json:"anotacao"`
 }
 
-// Handlers para as operações relacionadas às anotações
 func (u *Anot) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
@@ -59,6 +58,38 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
+func (u *Anot) GetAnnotationsByIdUserByDir(db *sql.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id := c.Param("id")
+
+		var anotacoes []Anot
+
+		rows, err := db.Query("SELECT ano.id_anotacao, pas.id_usuario, ano.titulo, ano.anotacao FROM anotacoes ano INNER JOIN pastas pas ON pas.id_pasta = ano.id_pasta WHERE pas.id_pasta = ?", id)
+		if err != nil {
+			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
+			return
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var anot Anot
+			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
+			if err != nil {
+				c.JSON(500, gin.H{"message": "Erro ao ler as anotações"})
+				return
+			}
+			anotacoes = append(anotacoes, anot)
+		}
+
+		if err := rows.Err(); err != nil {
+			c.JSON(404, gin.H{"message": "Anotações não encontradas"})
+			return
+		}
+
+		c.JSON(200, anotacoes)
+	}
+}
+
 func (u *Anot) GetAllAnnotations(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var anotacoes []Anot
@@ -80,6 +111,8 @@ func (u *Anot) GetAllAnnotations(db *sql.DB) gin.HandlerFunc {
 		c.JSON(200, anotacoes)
 	}
 }
+
+
 
 func (u *Anot) PostAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {

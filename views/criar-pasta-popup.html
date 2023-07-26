@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Coloque aqui os links para os estilos CSS, scripts e outros metadados -->
+    <style>
+        /* Estilos para o pop-up */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro para deixar a página com pouco brilho */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Certifique-se de que o pop-up esteja sempre acima dos outros elementos */
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Estilos para o botão "+" */
+        /* (estilos existentes do botão) */
+
+        /* Estilos para centralizar o conteúdo principal */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Conteúdo principal da página -->
+        <div class="repeated-buttons-dirs">
+            <!-- Botões de pasta aqui -->
+        </div>
+
+        <!-- Pop-up para criar nova pasta -->
+        <div class="popup-container">
+            <div class="popup-content">
+                <h2>Criar Nova Pasta</h2>
+                <label for="nome-pasta">Nome da Pasta:</label>
+                <input type="text" id="nome-pasta" />
+                <button onclick="criarPasta()">Criar</button>
+                <button onclick="fecharPopup()">Cancelar</button>
+            </div>
+        </div>
+
+        <div class="repeated-buttons-notes">
+            <!-- Botões de anotações aqui -->
+        </div>
+    </div>
+    <!-- Coloque aqui os scripts JS -->
+</body>
+</html>

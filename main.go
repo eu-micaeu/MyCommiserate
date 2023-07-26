@@ -18,6 +18,7 @@ func main() {
 		panic(err)
 	}
 
+	routes.DirRoutes(r, db)
 	routes.UserRoutes(r, db)
 	routes.AnotRoutes(r, db)
 
@@ -42,6 +43,15 @@ func main() {
 	r.GET("/editar.html", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "editar.html", nil)
 	})
+
+	r.GET("/pastas.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "pastas.html", nil)
+	})
+
+	r.GET("/criar-pasta-popup.html", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "criar-pasta-popup.html", nil)
+	})
+
 
 	r.Static("/static", "./static")
 	

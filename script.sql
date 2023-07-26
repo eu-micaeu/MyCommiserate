@@ -3,23 +3,27 @@ USE mycommiserate;
 
 CREATE TABLE usuarios (
     id_usuario int AUTO_INCREMENT PRIMARY KEY,
-    usuario TEXT,
-    senha TEXT
+    usuario VARCHAR(255),
+    senha VARCHAR(255),
+    data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE anotacoes (
     id_anotacao int AUTO_INCREMENT PRIMARY KEY,
     id_usuario int,
-    titulo TEXT,
-    anotacao TEXT,
+    titulo VARCHAR(255),
+    anotacao VARCHAR(255),
+    data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
-ALTER TABLE usuarios
-ADD COLUMN data_adicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-
-ALTER TABLE anotacoes
-ADD COLUMN data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+CREATE TABLE pastas (
+    id_pasta int AUTO_INCREMENT PRIMARY KEY,
+    id_usuario int,
+    nome VARCHAR(255),
+    data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
 
 DELIMITER //
 CREATE TRIGGER before_insert_usuarios
@@ -56,11 +60,10 @@ END;
 DELIMITER ;
 
 ALTER TABLE usuarios
-MODIFY COLUMN usuario VARCHAR(255);
-
-ALTER TABLE usuarios
 ADD CONSTRAINT uk_usuario UNIQUE (usuario);
 
-
+ALTER TABLE anotacoes
+ADD COLUMN id_pasta int,
+ADD FOREIGN KEY (id_pasta) REFERENCES pastas(id_pasta);
 
 
