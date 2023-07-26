@@ -37,6 +37,9 @@ BEGIN
     IF (NEW.senha IS NULL OR NEW.senha = '') THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'O campo "senha" não pode ser NULL ou vazio.';
+    ELSEIF (CHAR_LENGTH(NEW.senha) <= 7) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'O campo "senha" deve ter mais de 7 caracteres.';
     END IF;
 END;
 //
