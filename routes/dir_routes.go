@@ -11,4 +11,5 @@ func DirRoutes(r *gin.Engine, db *sql.DB) {
 	dirHandler := handlers.Dir{}
 
 	r.GET("/pastas/:id", dirHandler.GetDirByID(db))
+	r.POST("/criar/:id_usuario", dirHandler.PostDir(db))
 }

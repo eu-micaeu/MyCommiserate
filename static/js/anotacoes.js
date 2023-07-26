@@ -7,7 +7,6 @@ function anots() {
             var repeatedButtonsContainer = document.querySelector(".repeated-buttons-notes");
             repeatedButtonsContainer.innerHTML = "";
 
-            // Verifica se a resposta contém um único objeto de pasta e, em seguida, envolve-o em uma matriz
             if (!Array.isArray(anotacoes)) {
                 anotacoes = [anotacoes];
             }
@@ -45,6 +44,12 @@ function dirs() {
                 var pastas = JSON.parse(this.responseText);
                 var repeatedButtonsContainer = document.querySelector(".repeated-buttons-dirs");
                 repeatedButtonsContainer.innerHTML = "";
+
+                // Verifica se a resposta contém um único objeto de pasta e, em seguida, envolve-o em uma matriz
+                if (!Array.isArray(pastas)) {
+                    pastas = [pastas];
+                }
+
 
                 for (var i = 0; i < pastas.length; i++) {
                     var clonedButton = document.createElement("button");
