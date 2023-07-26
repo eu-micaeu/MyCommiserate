@@ -34,3 +34,10 @@ textarea{
 #imagemLogo{
   width: 10%;
 }
+
+@media screen and (max-device-width: 768px){
+  #imagemLogo{
+    margin-top: 30px;
+    width: 30%;
+  }
+}
