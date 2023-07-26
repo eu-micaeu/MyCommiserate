@@ -2,41 +2,44 @@
 <html>
 
 <head>
-    <link href="..\static\css\cadastro.css" rel="stylesheet" />
-    <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
+  <link href="..\static\css\cadastro.css" rel="stylesheet" />
+  <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
+    crossorigin="anonymous"></script>
 
 </head>
 <title>MyCommiserate</title>
 
 <body>
-    <div class="logoContainer">
-        <img id="imagemLogo" src="../static/images/v23_33.png" onclick="window.location.href='/'" alt="logo"> 
+  <div class="logoContainer">
+    <img id="imagemLogo" src="../static/images/v23_33.png" onclick="window.location.href='/'" alt="logo">
+  </div>
+
+  <div class="formContainer">
+    <div class="userContainer">
+      <label for="usuario">Usuário:</label> <br />
+      <input type="text" class="userInput" id="usuario" /> <br />
     </div>
-
-    <div class="formContainer">
-        <div class="userContainer">
-          <label for="usuario">Usuário:</label> <br />
-          <input type="text" class="userInput" id="usuario" /> <br />
-        </div>
-        <div class="passwdContainer">
-            <label for="senha">Senha:</label> <br />
-            <input type="password" class="passwdInput" id="senha" />
-            <p>*Ao menos, 8 caracteres, sendo esses, nenhum especial.</p>
-          </div>
-        <div class="cpasswdContainer">
-          <label for="senha">Conf. Senha:</label> <br />
-          <input type="password" class="cpasswdInput" id="senhaconfirmada" />
-        </div>
+    <div class="passwdContainer">
+      <label for="senha">Senha:</label> <br />
+      <input type="password" class="passwdInput" id="senha" />
+      <p>*Ao menos, 8 caracteres, sendo esses, nenhum especial.</p>
     </div>
+    <div class="cpasswdContainer">
+      <label for="senha">Conf. Senha:</label> <br />
+      <input type="password" class="cpasswdInput" id="senhaconfirmada" />
+    </div>
+  </div>
 
-    <div class="btnContainer">
-        <button class="btn" id="cadastrar">Cadastrar</button>
-      </div>
+  <div class="btnContainer">
+    <button class="btn" id="cadastrar">Cadastrar</button>
+  </div>
+  <footer class="footer">
+    <p class="copy">@Copyright 2023</p>
+  </footer>
 
-      <script src="..\static\js\cadastro.js"></script>
+  <script src="..\static\js\cadastro.js"></script>
 
 </body>
 
