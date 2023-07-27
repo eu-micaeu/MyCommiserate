@@ -37,8 +37,24 @@
 }
 
 .btnContainer{
+  margin: 10px auto;
+  padding-top: 25px;
+  display: flex;
+}
+
+.explicacaoContainer{
   margin: 0 auto;
   padding-top: 25px;
+  display: flex;
+}
+
+#Logo{
+  margin-top: 20px;
+}
+
+#textoInformativo{
+  font-size: 25px;
+  margin-left: 2px;
 }
 
 .btn {
