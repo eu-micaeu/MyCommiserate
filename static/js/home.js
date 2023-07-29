@@ -61,3 +61,37 @@ document.querySelector("#anotacoes").addEventListener("click", function () {
     window.location.href = "anotacoes.html";
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const anotacoesDiv = document.querySelector('.textNote');
+
+    document.getElementById('telaCheia').addEventListener('click', function() {
+        if (anotacoesDiv.requestFullscreen) {
+            anotacoesDiv.requestFullscreen();
+        } else if (anotacoesDiv.mozRequestFullScreen) {
+            anotacoesDiv.mozRequestFullScreen();
+        } else if (anotacoesDiv.webkitRequestFullscreen) { 
+            anotacoesDiv.webkitRequestFullscreen();
+        } else if (anotacoesDiv.msRequestFullscreen) { 
+            anotacoesDiv.msRequestFullscreen();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'F11') {
+            if (document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) { 
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    });
+});
