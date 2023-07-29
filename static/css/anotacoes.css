@@ -25,7 +25,7 @@
   height: auto;
   display: grid;
   grid: auto / auto auto auto;
-  grid-gap: 10px;
+  row-gap: 10px;
 }
 
 .dirContainer {
@@ -40,7 +40,7 @@
   height: auto;
   display: grid;
   grid: auto / auto auto auto;
-  grid-gap: 10px;
+  row-gap: 10px;
 }
 
 .v65_17 {
@@ -53,6 +53,7 @@
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  margin: 0 10px;
 }
 
 .v65_17:hover{
