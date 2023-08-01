@@ -32,8 +32,18 @@ textarea{
 }
 
 #imagemLogo{
-  width: 10%;
-}
+    width: 12vw;
+    padding: 10px 30px;
+  }
+
+  .logoContainer  {
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255);
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
 
 @media screen and (max-device-width: 768px){
   #imagemLogo{

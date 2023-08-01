@@ -5,7 +5,8 @@
   text-align: center;
   background: rgba(255, 255, 255);
   justify-content: center;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 25px;
 }
 
 .formContainer {
@@ -37,19 +38,28 @@
 }
 
 .btnContainer{
-  margin: 10px auto;
-  padding-top: 25px;
-  display: flex;
-}
-
-.explicacaoContainer{
   margin: 0 auto;
   padding-top: 25px;
   display: flex;
 }
 
+.btnContainermodoAlt{
+  margin: 0 auto;
+  display: flex;
+}
+
+.explicacaoContainer{
+  margin: 0 auto;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+  padding-top: 25px;
+  display: flex;
+}
+
 #Logo{
+  width: 20vw;
   margin-top: 20px;
+  padding: 10px 30px;
 }
 
 #textoInformativo{
@@ -76,6 +86,28 @@
   margin: 30px 0px;
 }
 
+.lineAlt{
+  border: 6px solid #ffffff;
+  margin: 30px 0px;
+}
+
+
+.modoAlt {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.modoAltInput {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: #000;
+}
+
+.modoAltBody {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
 
 @media screen and (max-device-width: 768px) {
     .formContainer{
@@ -88,6 +120,12 @@
     .userInput, 
     .passwdInput{
       font-size: 35px;
+    }
+
+    #Logo{
+      width: 030vw;
+      margin-top: 20px;
+      padding: 10px 30px;
     }
 }
   

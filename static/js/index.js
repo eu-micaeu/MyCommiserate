@@ -43,3 +43,30 @@ document.addEventListener("DOMContentLoaded", function () {
     usuarioInput.addEventListener("keypress", handleKeyPress);
     senhaInput.addEventListener("keypress", handleKeyPress);
 });
+
+const modoAltButton = document.getElementById('modoAlt');
+const body = document.getElementById('body');
+const formContainer = document.getElementsByClassName('formContainer')[0];
+const userContainer = document.getElementsByClassName('userContainer')[0];
+const passwdContainer = document.getElementsByClassName('passwdContainer')[0];
+const logoContainer = document.getElementsByClassName('logoContainer')[0];
+const line = document.getElementsByClassName('line')[0];
+const botaoEntrar = document.getElementById('entrar');
+const botaoCadastro = document.getElementById('cadastro');
+const usuario = document.getElementById('usuario');
+const senha = document.getElementById('senha');
+
+
+modoAltButton.addEventListener('click', function () {
+    senha.classList.toggle('modoAltInput');
+    usuario.classList.toggle('modoAltInput');
+    body.classList.toggle('modoAltBody');
+    botaoEntrar.classList.toggle('modoAlt');
+    botaoCadastro.classList.toggle('modoAlt');
+    modoAltButton.classList.toggle('modoAlt');
+    formContainer.classList.toggle('modoAlt');
+    userContainer.classList.toggle('modoAlt');
+    line.classList.toggle('lineAlt');
+    passwdContainer.classList.toggle('modoAlt');
+    logoContainer.classList.toggle('modoAltBody');
+});
