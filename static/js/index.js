@@ -27,3 +27,21 @@ document.querySelector("#entrar").addEventListener("click", async () => {
 document.querySelector("#cadastro").addEventListener("click", async () => {
     window.location.href = "cadastro.html";
 })
+
+document.addEventListener("DOMContentLoaded", function () {
+    const entrarButton = document.querySelector("#entrar");
+    const usuarioInput = document.querySelector("#usuario");
+    const senhaInput = document.querySelector("#senha");
+
+    // Função para tratar o evento de pressionar teclas nos campos de entrada
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Impedir o envio do formulário padrão no caso de estar dentro de um formulário
+            entrarButton.click(); // Simular o clique no botão "Entrar"
+        }
+    }
+
+    // Adicionar o ouvinte de eventos para os campos de entrada
+    usuarioInput.addEventListener("keypress", handleKeyPress);
+    senhaInput.addEventListener("keypress", handleKeyPress);
+});
