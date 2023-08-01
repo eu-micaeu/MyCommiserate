@@ -7,7 +7,6 @@ function anots() {
             var repeatedButtonsContainer = document.querySelector(".repeated-buttons-notes");
             repeatedButtonsContainer.innerHTML = "";
 
-            // Verifica se a resposta contém um único objeto de pasta e, em seguida, envolve-o em uma matriz
             if (!Array.isArray(anotacoes)) {
                 anotacoes = [anotacoes];
             }

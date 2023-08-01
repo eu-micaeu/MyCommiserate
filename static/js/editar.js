@@ -1,5 +1,3 @@
-
-
 function showImageOverlay() {
     const overlay = document.createElement("div");
     overlay.id = "overlay";
@@ -88,9 +86,7 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
 
 document.querySelector("#salvarBtn").addEventListener("click", async () => {
 
-    // Obtenha o ID da pasta selecionada armazenado em localStorage
     var selectedDirID = localStorage.getItem("selectedDirID");
-    // Faça a chamada PUT para atualizar a anotação e mover para a pasta selecionada
     const resposta = await fetch(`/pastas/${selectedDirID}/anotacoes/${idAnotacao}`, {
         method: "PUT",
         headers: {
@@ -120,13 +116,11 @@ document.querySelector("#excluir").addEventListener("click", async () => {
 function fillPastasSelect(pastas) {
     var pastasSelect = document.getElementById("pastasSelect");
 
-    // Adicionar a opção vazia com o valor "-"
     var emptyOption = document.createElement("option");
     emptyOption.value = "-";
     emptyOption.textContent = "-";
     pastasSelect.appendChild(emptyOption);
 
-    // Preencher as opções das pastas
     for (var i = 0; i < pastas.length; i++) {
         var option = document.createElement("option");
         option.value = pastas[i].id_pasta;

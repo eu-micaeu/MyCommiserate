@@ -33,15 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const usuarioInput = document.querySelector("#usuario");
     const senhaInput = document.querySelector("#senha");
 
-    // Função para tratar o evento de pressionar teclas nos campos de entrada
     function handleKeyPress(event) {
         if (event.key === "Enter") {
-            event.preventDefault(); // Impedir o envio do formulário padrão no caso de estar dentro de um formulário
-            entrarButton.click(); // Simular o clique no botão "Entrar"
+            event.preventDefault();
+            entrarButton.click(); 
         }
     }
 
-    // Adicionar o ouvinte de eventos para os campos de entrada
     usuarioInput.addEventListener("keypress", handleKeyPress);
     senhaInput.addEventListener("keypress", handleKeyPress);
 });
