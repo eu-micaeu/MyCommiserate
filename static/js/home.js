@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateModoAltButtonState(isModoAlt) {
-    // Aplicar o modo alternativo se necessário
     if (isModoAlt) {
         body.classList.toggle('modoAltBody');
         main.classList.toggle('modoAltBody');
@@ -139,7 +138,7 @@ function updateModoAltButtonState(isModoAlt) {
 
 modoAlt.addEventListener('click', function () {
     const isModoAlt = localStorage.getItem('modoAlt') === 'true';
-    const newModoAltValue = !isModoAlt; // Troca entre true e false
+    const newModoAltValue = !isModoAlt; 
     localStorage.setItem('modoAlt', newModoAltValue);
-    updateModoAltButtonState(newModoAltValue); // Atualizar o estado visual do modo
+    updateModoAltButtonState(newModoAltValue); 
 });
