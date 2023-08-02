@@ -78,6 +78,27 @@
   border: none;
 }
 
+.lineAlt{
+  border: 6px solid #ffffff;
+  margin: 30px 0px;
+}
+
+.modoAltBody {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.modoAltInput {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: #000;
+}
+
+.modoAlt {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;

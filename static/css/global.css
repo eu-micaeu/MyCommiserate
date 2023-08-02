@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Regular.ttf');
-	font-weight: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Bold.ttf');
-	font-weight: bold;
+  font-weight: bold;
 }
 
 * {
@@ -23,35 +23,40 @@ body {
   flex-direction: column;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-.bg-black{
+.bg-black {
   background-color: black;
 }
 
-#imagemLogo{
-    width: 12vw;
-    padding: 10px 30px;
-  }
+#imagemLogo {
+  width: 12vw;
+  padding: 10px 30px;
+}
 
-  .logoContainer  {
-    width: 100%;
-    text-align: center;
-    background: rgba(255, 255, 255);
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 25px;
-  }
+.logoContainer {
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255);
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
 
-@media screen and (max-device-width: 768px){
-  #imagemLogo{
+.btnContainermodoAlt{
+  margin: 0 auto;
+  display: flex;
+}
+
+@media screen and (max-device-width: 768px) {
+  #imagemLogo {
     margin-top: 30px;
     width: 30%;
   }
 
-  textarea{
+  textarea {
     height: 40vh;
   }
 }

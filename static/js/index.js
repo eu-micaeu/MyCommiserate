@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleKeyPress(event) {
         if (event.key === "Enter") {
             event.preventDefault();
-            entrarButton.click(); 
+            entrarButton.click();
         }
     }
 
@@ -69,4 +69,6 @@ modoAltButton.addEventListener('click', function () {
     line.classList.toggle('lineAlt');
     passwdContainer.classList.toggle('modoAlt');
     logoContainer.classList.toggle('modoAltBody');
+    const isModoAlt = usuario.classList.contains('modoAltInput');
+    localStorage.setItem('modoAlt', isModoAlt);
 });
