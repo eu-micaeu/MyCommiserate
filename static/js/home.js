@@ -136,7 +136,7 @@ function updateModoAltButtonState(isModoAlt) {
     }
 }
 
-modoAlt.addEventListener('click', function () {
+modoAlternativo.addEventListener('click', function () {
     const isModoAlt = localStorage.getItem('modoAlt') === 'true';
     const newModoAltValue = !isModoAlt; 
     localStorage.setItem('modoAlt', newModoAltValue);

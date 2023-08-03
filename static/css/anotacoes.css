@@ -76,15 +76,11 @@
 
 .createFolderContainer input{
   width: 100%;
-  color: rgb(0, 0, 0);
   font-size: 25px;
   text-align: left;
   border-radius: 10px;
-  background-color: transparent;
   border-style: groove;
-  border-color: rgb(0, 0, 0);
 }
-
 
 .dirContainer {
   border-radius: 10px;
