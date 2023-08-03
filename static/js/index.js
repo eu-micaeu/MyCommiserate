@@ -16,8 +16,12 @@ document.querySelector("#entrar").addEventListener("click", async () => {
         if (response.status === 404) {
             alert("Usuário não encontrado");
         } else {
-            localStorage.setItem("loggedInUserID", data.id);
-            window.location.href = "home.html";
+            if (data && data.id) {
+                localStorage.setItem("loggedInUserID", data.id);
+                window.location.href = "home.html";
+            } else {
+                alert("Não foi possível obter o ID do usuário.");
+            }            
         }
     } else {
         alert("Usuário ou senha incorretos");
