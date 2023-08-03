@@ -103,6 +103,9 @@
   color: rgb(255, 255, 255);
 }
 
+#dowload{
+  margin-bottom: 10vh;
+}
 
 @media screen and (max-device-width: 768px) {
     .formContainer{
@@ -121,6 +124,10 @@
       width: 030vw;
       margin-top: 20px;
       padding: 10px 30px;
+    }
+
+    .line{
+      margin-top: 33vh;
     }
 }
   
