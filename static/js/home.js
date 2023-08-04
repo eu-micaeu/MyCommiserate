@@ -142,3 +142,7 @@ modoAlternativo.addEventListener('click', function () {
     localStorage.setItem('modoAlt', newModoAltValue);
     updateModoAltButtonState(newModoAltValue); 
 });
+
+imagemLogo.addEventListener('click', function () {
+    localStorage.setItem('loggedInUserID', 0);
+});
