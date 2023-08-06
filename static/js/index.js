@@ -34,13 +34,6 @@ document.querySelector("#cadastro").addEventListener("click", async () => {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const loggedInUserID = localStorage.getItem("loggedInUserID");
-
-    if (loggedInUserID != 0) {
-      // Já existe um ID de usuário no armazenamento local, então redireciona para a página home.html
-      window.location.href = "home.html";
-    }
-
     const entrarButton = document.querySelector("#entrar");
     const usuarioInput = document.querySelector("#usuario");
     const senhaInput = document.querySelector("#senha");
