@@ -36,15 +36,6 @@ textarea {
   padding: 10px 30px;
 }
 
-.logoContainer {
-  width: 100%;
-  text-align: center;
-  background: rgba(255, 255, 255);
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 25px;
-}
-
 .btnContainermodoAlt{
   margin: 0 auto;
   display: flex;

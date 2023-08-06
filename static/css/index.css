@@ -1,9 +1,8 @@
 @import url('./global.css');
 
-.logoContainer  {
+#logoContainer  {
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255);
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 25px;
@@ -101,10 +100,6 @@
 .modoAltBody {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
-}
-
-#dowload{
-  margin-bottom: 10vh;
 }
 
 @media screen and (max-device-width: 768px) {

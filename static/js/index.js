@@ -1,3 +1,5 @@
+localStorage.clear();
+
 document.querySelector("#entrar").addEventListener("click", async () => {
     const username = document.querySelector("#usuario").value;
     const password = document.querySelector("#senha").value;
@@ -54,7 +56,7 @@ const body = document.getElementById('body');
 const formContainer = document.getElementsByClassName('formContainer')[0];
 const userContainer = document.getElementsByClassName('userContainer')[0];
 const passwdContainer = document.getElementsByClassName('passwdContainer')[0];
-const logoContainer = document.getElementsByClassName('logoContainer')[0];
+const logoContainer = document.getElementById('logoContainer');
 const line = document.getElementsByClassName('line')[0];
 const botaoEntrar = document.getElementById('entrar');
 const botaoCadastro = document.getElementById('cadastro');
