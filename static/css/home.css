@@ -99,6 +99,11 @@
   color: rgb(0, 0, 0);
 }
 
+.semBorda{
+  border-color: #000;
+  border-radius: 0px;
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;

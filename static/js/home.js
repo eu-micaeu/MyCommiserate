@@ -67,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('telaCheia').addEventListener('click', function () {
         if (anotacoesDiv.requestFullscreen) {
             anotacoesDiv.requestFullscreen();
+            anotacoesDiv.classList.toggle('semBorda');
         } else if (anotacoesDiv.mozRequestFullScreen) {
+            anotacoesDiv.classList.toggle('semBorda');
             anotacoesDiv.mozRequestFullScreen();
         } else if (anotacoesDiv.webkitRequestFullscreen) {
+            anotacoesDiv.classList.toggle('semBorda');
             anotacoesDiv.webkitRequestFullscreen();
         } else if (anotacoesDiv.msRequestFullscreen) {
+            anotacoesDiv.classList.toggle('semBorda');
             anotacoesDiv.msRequestFullscreen();
         }
     });
