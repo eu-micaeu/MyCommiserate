@@ -41,6 +41,14 @@ textarea {
   display: flex;
 }
 
+#logoContainer {
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255);
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 @media screen and (max-device-width: 768px) {
   #imagemLogo {
     margin-top: 30px;
