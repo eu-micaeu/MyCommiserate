@@ -1,7 +1,11 @@
 @import url('./global.css');
 
+#body{
+  background-color: black;
+}
+
 .main {
-  background: rgba(255, 255, 255, 1);
+  background: rgb(0, 0, 0);
 }
 
 .logoContainer{
@@ -9,7 +13,7 @@
 }
 
 .line{
-  border: 6px solid #000;
+  border: 6px solid #ffffff;
   margin-bottom: 15px;
 }
 
@@ -29,8 +33,8 @@
 }
 
 .v65_17 {
-  background-color: #000;
-  color: rgba(255, 255, 255, 1);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   text-align: center;
   border: none;
@@ -65,7 +69,7 @@
 
 .btn{
   background-color: #ff0000;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(0, 0, 0);
   font-size: 20px;
   text-align: center;
   border: none;

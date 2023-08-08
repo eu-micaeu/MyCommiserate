@@ -1,7 +1,11 @@
 @import url('./global.css');
 
+#body{
+  background-color: black;
+}
+
 .formContainer {
-  background: rgba(0, 0, 0);
+  background: rgb(255, 255, 255);
   border-radius: 10px;
   margin: 0 auto;
   padding: 30px 40px;
@@ -9,7 +13,7 @@
 
 .userContainer,
 .passwdContainer {
-  color: rgba(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 25px;
   font-weight: normal;
   text-align: left;
@@ -19,13 +23,13 @@
 .userInput,
 .passwdInput {
   width: 100%;
-  color: rgba(255, 255, 255);
+  color: rgb(7, 7, 7);
   font-size: 25px;
   text-align: left;
   border-radius: 10px;
   background-color: transparent;
   border-style: groove;
-  border-color: white;
+  border-color: rgb(0, 0, 0);
 }
 
 .btnContainer{
@@ -54,7 +58,7 @@
 }
 
 .btn {
-  color: rgba(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 25px;
   padding: 8px 35px;
   border-color: transparent;
@@ -68,30 +72,8 @@
 }
 
 .line{
-  border: 6px solid #000;
-  margin: 30px 0px;
-}
-
-.lineAlt{
   border: 6px solid #ffffff;
   margin: 30px 0px;
-}
-
-
-.modoAlt {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-.modoAltInput {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border-color: #000;
-}
-
-.modoAltBody {
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-device-width: 768px) {
