@@ -51,11 +51,6 @@ async function buscarDadosAnotacao() {
 
 buscarDadosAnotacao();
 
-document.getElementById("pastasSelect").addEventListener("change", function () {
-    var selectedFolderID = this.value;
-    localStorage.setItem("selectedFolderID", selectedFolderID);
-});
-
 document.querySelector('#notesBtn').addEventListener('click', function () {
     window.location.href = '/anotacoes.html';
 });
@@ -111,40 +106,4 @@ document.querySelector("#excluir").addEventListener("click", async () => {
     } else {
         alert("Erro ao excluir a anotação");
     }
-});
-
-function fillPastasSelect(pastas) {
-    var pastasSelect = document.getElementById("pastasSelect");
-
-    var emptyOption = document.createElement("option");
-    emptyOption.value = "-";
-    emptyOption.textContent = "-";
-    pastasSelect.appendChild(emptyOption);
-
-    for (var i = 0; i < pastas.length; i++) {
-        var option = document.createElement("option");
-        option.value = pastas[i].id_pasta;
-        option.textContent = pastas[i].nome;
-        pastasSelect.appendChild(option);
-    }
-}
-
-
-function getPastas() {
-    var id = parseInt(localStorage.getItem("loggedInUserID"));
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var pastas = JSON.parse(this.responseText);
-            fillPastasSelect(pastas);
-        }
-    };
-    xhr.open("GET", "/pastas/" + id, true);
-    xhr.send();
-}
-
-window.addEventListener("load", getPastas);
-
-window.addEventListener("load", function () {
-    localStorage.setItem("selectedFolderID", "-");
 });

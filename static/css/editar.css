@@ -16,7 +16,13 @@
   background: rgb(0, 0, 0);
   justify-content: center;
   margin-bottom: 30px;
-  
+}
+
+.btnContainer{
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-right: 10;
+  display: flex;
 }
 
 .logoContainer img{
@@ -39,7 +45,7 @@
   font-size: 20px;
   padding: 8px 35px;
   border-radius: 10px;
-  margin: 15px auto;
+  margin: 15px 10px;
   cursor: pointer;
   border-color: transparent;
   font-family: 'Poppins', sans-serif;
@@ -53,7 +59,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 30px;
+  padding: 0px 14vw;
 }
 
 .textNote, .titleInput{

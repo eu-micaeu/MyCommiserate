@@ -12,7 +12,6 @@ type User struct {
 	Password string `json:"password"`
 }
 
-// Handlers para as operações relacionadas aos usuários
 func (u *User) GetUserByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")

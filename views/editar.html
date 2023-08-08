@@ -7,31 +7,30 @@
     <title>MyCommiserate</title>
     <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609" crossorigin="anonymous"></script>
-    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body id="body">
     <div class="main">
-        <div class="logoContainer">
-            <img id="imagemLogo" src="../static/images/logo.png" alt="logo"
-                onclick="window.location.href='/anotacoes.html'">
+        <div id="logoContainer">
+            <img id="imagemLogo" src="../static/images/logo.png" alt="logo">
         </div>
-        <hr class="line" />
         <div class="titleContainer">
-            <button class="btn" id="notesBtn">Anotações</button>
+            <button class="btn" id="notesBtn" onclick="window.location.href='/anotacoes.html'">Voltar</button>
         </div>
         <div class="notes">
             <label for="titulo" class="labelTitle">Título:</label>
             <input type="text" class="titleInput" id="titulo">
             <label for="anotacao" class="labelTitle">Anotação:</label>
             <textarea class="textNote" rows="10" id="anotacao"></textarea>
-            <label for="pastasSelect" class="labelTitle">Adicionar a alguma pasta?</label>
-            <select id="pastasSelect" class="pastasSelect"></select>
-            <button class="btn" id="salvarBtn">Salvar</button>
-            <button class="btn" id="excluir">Excluir</button>
+            <div class="btnContainer">
+                <button class="btn" id="salvarBtn">Salvar</button>
+                <button class="btn" id="excluir">Excluir</button>
+            </div>
         </div>
-        
+
     </div>
 
     <script src="..\static\js\editar.js"></script>

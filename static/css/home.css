@@ -10,15 +10,6 @@
   background: rgb(0, 0, 0);
 }
 
-.logoContainer{
-  width: 100%;
-  text-align: center;
-  background: rgb(0, 0, 0);
-  justify-content: center;
-  margin-bottom: 30px;
-  
-}
-
 .logoContainer img{
   cursor: pointer;
 }
@@ -53,7 +44,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 30px;
+  padding: 0px 14vw;
 }
 
 .textNote, .titleInput{
@@ -73,6 +64,7 @@
 .labelTitulo{
   font-size: 25px;
   padding-left: 10px;
+  color: white;
 }
 
 .titleInput {

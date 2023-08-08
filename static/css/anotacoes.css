@@ -1,16 +1,15 @@
 @import url('./global.css');
 
 .main {
-  background: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
+}
+
+#html{
+  background-color: black;
 }
 
 .logoContainer{
   text-align: center;
-}
-
-.line{
-  border: 6px solid #ffffff;
-  margin-bottom: 15px;
 }
 
 .notesContainer {
@@ -22,21 +21,6 @@
 }
 
 .repeated-buttons-notes {
-  height: auto;
-  display: grid;
-  grid: auto / auto auto auto;
-  row-gap: 10px;
-}
-
-.dirContainer {
-  border-radius: 10px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.repeated-buttons-dirs {
   height: auto;
   display: grid;
   grid: auto / auto auto auto;
@@ -58,36 +42,6 @@
 
 .v65_17:hover{
   background-color: #424242;
-}
-
-.createFolderContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  max-width: 300px; /* Opcional: Defina uma largura máxima para a div */
-}
-
-.createFolderContainer input,
-.createFolderContainer button {
-  margin-bottom: 10px;
-}
-
-.createFolderContainer input{
-  width: 100%;
-  font-size: 25px;
-  text-align: left;
-  border-radius: 10px;
-  border-style: groove;
-}
-
-.dirContainer {
-  border-radius: 10px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
 }
 
 .title {
