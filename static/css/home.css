@@ -10,10 +10,6 @@
   background: rgb(0, 0, 0);
 }
 
-.logoContainer img{
-  cursor: pointer;
-}
-
 .line{
   border: 6px solid #ffffff;
   margin-bottom: 15px;
@@ -30,10 +26,23 @@
   font-size: 20px;
   padding: 8px 35px;
   border-radius: 10px;
-  margin: 15px auto;
+  margin: 10px 2px;
   cursor: pointer;
   border-color: transparent;
   font-family: 'Poppins', sans-serif;
+}
+
+#salvar{
+  margin: 15px auto;
+  margin-bottom: 6px;
+}
+
+#voltar{
+  background-color: red;
+}
+
+#voltar:hover{
+  background-color: rgb(88, 0, 0);
 }
 
 .btn:hover{
@@ -74,9 +83,8 @@
   border: none;
 }
 
-.semBorda{
-  border-color: #000;
-  border-radius: 0px;
+#logoContainer{
+  margin-bottom: 0px;
 }
 
 @media screen and (max-device-width: 768px){

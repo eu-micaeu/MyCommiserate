@@ -79,19 +79,6 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
 
 });
 
-document.querySelector("#salvarBtn").addEventListener("click", async () => {
-
-    var selectedDirID = localStorage.getItem("selectedDirID");
-    const resposta = await fetch(`/pastas/${selectedDirID}/anotacoes/${idAnotacao}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ idAnotacao, selectedDirID })
-    });
-
-});
-
 document.querySelector("#excluir").addEventListener("click", async () => {
     const resposta = await fetch(`/excluir/${idAnotacao}`, {
         method: "DELETE",
