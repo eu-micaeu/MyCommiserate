@@ -32,7 +32,7 @@ textarea {
 }
 
 #imagemLogo {
-  width: 7vw;
+  width: 10vw;
   padding: 10px 30px;
 }
 
@@ -47,7 +47,7 @@ textarea {
   text-align: center;
   background: rgb(0, 0, 0);
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 @media screen and (max-device-width: 768px) {

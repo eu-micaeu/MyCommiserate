@@ -67,6 +67,19 @@
   background-color: #424242;
 }
 
+#voltar{
+  background-color: red;
+}
+
+.titleContainer{
+  display: flex;
+  justify-content: center;
+}
+
+#criar{
+  margin-top: 5px;
+}
+
 @media screen and (max-device-width: 768px){
   .repeated-buttons{
     grid: auto / auto auto
