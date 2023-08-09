@@ -48,3 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
     usuarioInput.addEventListener("keypress", handleKeyPress);
     senhaInput.addEventListener("keypress", handleKeyPress);
 });
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.querySelector(".loading").style.visibility = "hidden";
+    }, 700);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".loading").style.visibility = "visible";
+});
+

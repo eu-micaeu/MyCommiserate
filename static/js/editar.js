@@ -94,3 +94,14 @@ document.querySelector("#excluir").addEventListener("click", async () => {
         alert("Erro ao excluir a anotação");
     }
 });
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.querySelector(".loading").style.visibility = "hidden";
+    }, 700);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".loading").style.visibility = "visible";
+});
+

@@ -5,7 +5,8 @@
   <link href="..\static\css\cadastro.css" rel="stylesheet" />
   <link rel="icon" href="..\static\images\logo.png" type="image/x-icon">
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8291700047790609"
+    crossorigin="anonymous"></script>
 
 </head>
 <title>MyCommiserate</title>
@@ -13,6 +14,9 @@
 <body id="body">
   <div id="logoContainer">
     <img id="imagemLogo" src="..\static\images\logo.png" onclick="window.location.href='/'" alt="logo">
+  </div>
+  <div class="btnContainer">
+    <button class="btn" id="voltar" onclick="window.location.href='/'">Voltar</button>
   </div>
   <br>
   <div class="formContainer">
@@ -38,7 +42,12 @@
   <div class="btnContainer">
     <button class="btn" id="cadastrar">Cadastrar</button>
   </div>
-  
+
+  <div class="loading">
+    <img id="imagemLogo" src="../static/images/logo.png" alt="logo">
+    <p>MyCommiserate</p>
+  </div>
+
 
   <script defer src="..\static\js\cadastro.js"></script>
 

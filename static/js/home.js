@@ -60,3 +60,14 @@ document.querySelector("#salvar").addEventListener("click", async () => {
 document.querySelector("#anotacoes").addEventListener("click", function () {
     window.location.href = "anotacoes.html";
 });
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.querySelector(".loading").style.visibility = "hidden";
+    }, 700);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".loading").style.visibility = "visible";
+});
+

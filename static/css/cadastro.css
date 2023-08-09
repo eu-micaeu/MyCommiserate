@@ -60,6 +60,14 @@
   background-color: #424242;
 }
 
+#voltar{
+  cursor: pointer;
+}
+
+#voltar:hover{
+  background-color: #424242;
+}
+
 @media screen and (max-device-width: 768px) {
   .formContainer{
     margin: 50px;
