@@ -2,14 +2,12 @@
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Regular.ttf');
   font-weight: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins-Bold.ttf');
   font-weight: bold;
-  font-display: swap;
 }
 
 * {
@@ -35,7 +33,6 @@ textarea {
 
 #imagemLogo {
   width: 10vw;
-  height: 16vh;
   padding: 10px 30px;
 }
 
