@@ -63,6 +63,7 @@ textarea {
   z-index: 9999;
   visibility: hidden;
   color: white;
+  font-size: 20px;
 }
 
 @media screen and (max-device-width: 768px) {

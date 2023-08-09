@@ -105,3 +105,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".loading").style.visibility = "visible";
 });
 
+document.querySelector(".loading").style.display = "flex";
