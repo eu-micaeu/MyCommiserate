@@ -88,5 +88,9 @@
   .v65_17{
     font-size: 35px;
   }
+
+  .btn, .labelTitulo{
+    font-size: 30px;
+  }
 }
 
