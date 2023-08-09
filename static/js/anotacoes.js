@@ -1,3 +1,8 @@
+const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
+if (loggedInUserID === "0") {
+    window.location.href = "erro";
+}
+
 function anots() {
     var id = parseInt(localStorage.getItem("loggedInUserID"));
     var xhr = new XMLHttpRequest();
@@ -38,3 +43,9 @@ function anots() {
 }
 
 window.addEventListener("load", anots);
+
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});

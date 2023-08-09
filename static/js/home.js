@@ -1,3 +1,8 @@
+const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
+if (loggedInUserID === "0") {
+    window.location.href = "erro";
+}
+
 function showImageOverlay() {
     const overlay = document.createElement("div");
     overlay.id = "overlay";
@@ -35,8 +40,6 @@ function hideImageOverlay() {
     }
 }
 
-const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
-
 document.querySelector("#salvar").addEventListener("click", async () => {
     const titulo = document.querySelector("#titulo").value;
     const anotacao = document.querySelector("#anotacao").value;
@@ -61,3 +64,8 @@ document.querySelector("#anotacoes").addEventListener("click", function () {
     window.location.href = "anotacoes.html";
 });
 
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});

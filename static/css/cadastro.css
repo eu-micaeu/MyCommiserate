@@ -53,7 +53,7 @@
 
 #cadastrar{
   cursor: pointer;
-  margin: 20px;
+  margin: 0;
 }
 
 #cadastrar:hover{

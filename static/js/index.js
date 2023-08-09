@@ -48,4 +48,3 @@ document.addEventListener("DOMContentLoaded", function () {
     usuarioInput.addEventListener("keypress", handleKeyPress);
     senhaInput.addEventListener("keypress", handleKeyPress);
 });
-

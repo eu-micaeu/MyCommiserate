@@ -1,4 +1,4 @@
-package main
+ package main
 
 import (
 	"net/http"
@@ -23,7 +23,7 @@ func main() {
 
 	r.LoadHTMLGlob("views/*.html") 
 
-	r.GET("/", func(c *gin.Context) {
+	r.GET("/login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
@@ -41,6 +41,14 @@ func main() {
 
 	r.GET("/editar.html", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "editar.html", nil)
+	})
+
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "carregar.html", nil)
+	})
+
+	r.GET("/erro", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "error.html", nil)
 	})
 
 	r.Static("/static", "./static")
