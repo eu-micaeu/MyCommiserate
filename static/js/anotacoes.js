@@ -38,15 +38,3 @@ function anots() {
 }
 
 window.addEventListener("load", anots);
-
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        document.querySelector(".loading").style.visibility = "hidden";
-    }, 700);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".loading").style.visibility = "visible";
-});
-
-document.querySelector(".loading").style.display = "flex";
