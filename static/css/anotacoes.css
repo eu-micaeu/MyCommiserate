@@ -71,6 +71,10 @@
   background-color: red;
 }
 
+#voltar:hover{
+  background-color: rgb(145, 0, 0);
+}
+
 .titleContainer{
   display: flex;
   justify-content: center;
