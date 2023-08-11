@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
     setTimeout(function () {
         document.querySelector(".loading").style.visibility = "hidden";
-        window.location.href = "/login";
+        window.location.href = "/inicio";
     }, 1000);
 });
 
