@@ -1,15 +1,14 @@
 package middlewares
 
 import (
-    "github.com/gin-contrib/cors" // Importa o pacote "cors" para lidar com as configurações de Compartilhamento de Recursos de Origem Cruzada (CORS).
-    "github.com/gin-gonic/gin"   // Importa o pacote "gin", que é o framework web utilizado nesta aplicação.
+    "github.com/gin-contrib/cors"
+    "github.com/gin-gonic/gin"   
 )
 
-// CorsMiddleware é uma função de middleware que configura as definições do CORS (Compartilhamento de Recursos de Origem Cruzada) para a aplicação Gin.
 func CorsMiddleware() gin.HandlerFunc {
-    config := cors.DefaultConfig() // Cria uma nova configuração de CORS com as definições padrão.
+    config := cors.DefaultConfig()
 
-    config.AllowOrigins = []string{"*"} // Permite requisições de qualquer origem (todas as origens) com o asterisco (*).
+    config.AllowOrigins = []string{"*"}
 
-    return cors.New(config) // Cria e retorna um novo handler de middleware do CORS com a configuração especificada.
+    return cors.New(config) 
 }
