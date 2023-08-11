@@ -46,9 +46,13 @@
   display: flex;
 }
 
+#logoContainer {
+  margin-top: 5vw;
+}
+
 #Logo{
   width: 20vw;
-  margin-top: 1vw;
+  margin-top: 50vw;
   padding: 5vw 5vw;
 }
 
