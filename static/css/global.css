@@ -60,11 +60,16 @@ textarea {
 @media screen and (max-device-width: 768px) {
   #imagemLogo {
     margin-top: 30px;
-    width: 20vw;
+    width: 18vw;
     height: 6vh;
   }
 
   textarea {
     height: 40vh;
   }
+
+  #titCarregar{
+    margin-top: 3vh;
+  }
+  
 }

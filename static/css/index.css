@@ -73,6 +73,9 @@
     .passwdInput{
       font-size: 35px;
     }
-
+    
+    #logoContainer {
+      margin-top: 20vh;
+    }
 }
   
