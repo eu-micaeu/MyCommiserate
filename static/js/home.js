@@ -60,13 +60,9 @@ document.querySelector("#salvar").addEventListener("click", async () => {
             body: JSON.stringify({ loggedInUserID, titulo, anotacao }),
         });
         const data = await response.json();
-        if (data.message === "Anotação criada com sucesso!") {
             showImageOverlay();
             document.querySelector("#titulo").value = "";
             document.querySelector("#anotacao").value = "";
-        } else {
-            alert("Não foi dessa vez que ela foi criada");
-        }
     }
 });
 
