@@ -1,4 +1,15 @@
 const loggedInUserID = localStorage.getItem("loggedInUserID").toString();
+
+window.addEventListener("load", function() {
+    if (loggedInUserID) {
+        fetch(`http://localhost:8080/users/${loggedInUserID}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("saudacoes").textContent = "Olá, " + data.username + "!";
+            });
+    }
+});
+
 if (loggedInUserID === "0") {
     window.location.href = "erro";
 }
@@ -72,13 +83,5 @@ document.querySelector("#anotacoes").addEventListener("click", function () {
 });
 
 
-window.addEventListener("load", function() {
-    if (loggedInUserID) {
-        fetch(`http://localhost:8080/users/${loggedInUserID}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("saudacoes").textContent = "Olá, " + data.username + "!";
-            });
-    }
-});
+
 
