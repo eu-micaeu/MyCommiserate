@@ -72,7 +72,7 @@ document.querySelector("#anotacoes").addEventListener("click", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     if (loggedInUserID) {
         fetch(`http://localhost:8080/users/${loggedInUserID}`)
             .then(response => response.json())
@@ -81,3 +81,4 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 });
+
