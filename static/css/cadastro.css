@@ -68,18 +68,32 @@
   background-color: #424242;
 }
 
+#logoContainer {
+  margin-top: 2vw;
+}
+
 @media screen and (max-device-width: 768px) {
   .formContainer{
     margin: 50px;
   }
-
+  
+  .nomeContainer,
   .userContainer,
   .passwdContainer,
   .cpasswdContainer
   .btn,
+  .nomeInput,
   .userInput,
   .passwdInput,
   .cpasswdInput{
     font-size: 50px;
+  }
+
+  label{
+    font-size: 40px;
+  }
+
+  p{
+    font-size: 25px;
   }
 }

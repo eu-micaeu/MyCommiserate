@@ -69,3 +69,16 @@ window.addEventListener("pageshow", function(event) {
         window.location.reload();
     }
 });
+
+if (loggedInUserID) {
+    fetch(`http://localhost:8080/users/${loggedInUserID}`)
+        .then(response => response.json())
+        .then(data => {
+            // Aqui você pode acessar as informações do usuário retornadas pela rota
+            var marcaElement = document.getElementById("saudacoes");
+            marcaElement.textContent = "Olá, " + data.username + "!";
+        });
+}
+
+
+

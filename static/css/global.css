@@ -32,8 +32,8 @@ textarea {
 }
 
 #imagemLogo {
-  width: 8vw;
-  height: 12vh;
+  width: 125px;
+  height: 90px;
   padding: 10px 30px;
 }
 
@@ -51,7 +51,7 @@ textarea {
   margin-bottom: 0px;
 }
 
-#marca{
+#marca, #saudacoes{
   color: white;
   font-size: 20px;
   margin: 0px;
@@ -60,8 +60,8 @@ textarea {
 @media screen and (max-device-width: 768px) {
   #imagemLogo {
     margin-top: 30px;
-    width: 30vw;
-    height: 12vh;
+    width: 20vw;
+    height: 6vh;
   }
 
   textarea {

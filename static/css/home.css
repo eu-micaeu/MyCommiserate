@@ -10,11 +10,6 @@
   background: rgb(0, 0, 0);
 }
 
-.line{
-  border: 6px solid #ffffff;
-  margin-bottom: 15px;
-}
-
 .titleContainer{
   display: flex;
   justify-content: center;
