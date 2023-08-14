@@ -70,15 +70,12 @@ window.addEventListener("pageshow", function(event) {
     }
 });
 
-if (loggedInUserID) {
-    fetch(`http://localhost:8080/users/${loggedInUserID}`)
-        .then(response => response.json())
-        .then(data => {
-            // Aqui você pode acessar as informações do usuário retornadas pela rota
-            var marcaElement = document.getElementById("saudacoes");
-            marcaElement.textContent = "Olá, " + data.username + "!";
-        });
-}
-
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    if (loggedInUserID) {
+        fetch(`http://localhost:8080/users/${loggedInUserID}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("saudacoes").textContent = "Olá, " + data.username + "!";
+            });
+    }
+});
