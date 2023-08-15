@@ -112,8 +112,8 @@ document.querySelector("#comandos").addEventListener("click", function() {
 
     let iframe = document.createElement("iframe");
     iframe.src = "comandos";
-    iframe.style.width = "800px";
-    iframe.style.height = "800px";
+    iframe.style.width = "400px";
+    iframe.style.height = "400px";
     iframe.style.position = "fixed";
     iframe.style.top = "50%";
     iframe.style.left = "50%";
