@@ -83,6 +83,18 @@
   margin-bottom: 0px;
 }
 
+#comandos{
+  padding: 5px 15px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;
