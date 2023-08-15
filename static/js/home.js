@@ -118,6 +118,11 @@ pontoRed2.addEventListener("input", function () {
     pontoRed2.value = pontoRed2.value.replace(/•red /g, "🔴");
 });
 
+let brena = document.getElementById("anotacao");
+brena.addEventListener("input", function () {
+    brena.value = brena.value.replace(/&brena /g, "❤️");
+});
+
 document.querySelector("#comandos").addEventListener("click", function() {
     let overlay = document.createElement("div");
     overlay.style.position = "fixed";
