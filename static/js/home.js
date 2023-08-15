@@ -84,20 +84,38 @@ textarea.addEventListener("keydown", function(event) {
     }
 });
 
+// TÍTULO
 
-let seta = document.getElementById("anotacao");
+let seta = document.getElementById("titulo");
 seta.addEventListener("input", function () {
     seta.value = seta.value.replace(/->/g, "→");
 });
 
-let ponto = document.getElementById("anotacao");
+let ponto = document.getElementById("titulo");
 ponto.addEventListener("input", function () {
     ponto.value = ponto.value.replace(/- /g, "•");
 });
 
-let pontoRed = document.getElementById("anotacao");
+let pontoRed = document.getElementById("titulo");
 pontoRed.addEventListener("input", function () {
     pontoRed.value = pontoRed.value.replace(/•red /g, "🔴");
+});
+
+// ANOTAÇÃO
+
+let seta2 = document.getElementById("anotacao");
+seta2.addEventListener("input", function () {
+    seta2.value = seta2.value.replace(/->/g, "→");
+});
+
+let ponto2 = document.getElementById("anotacao");
+ponto2.addEventListener("input", function () {
+    ponto2.value = ponto2.value.replace(/- /g, "•");
+});
+
+let pontoRed2 = document.getElementById("anotacao");
+pontoRed2.addEventListener("input", function () {
+    pontoRed2.value = pontoRed2.value.replace(/•red /g, "🔴");
 });
 
 document.querySelector("#comandos").addEventListener("click", function() {
