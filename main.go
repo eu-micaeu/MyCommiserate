@@ -51,6 +51,11 @@ func main() {
 		c.HTML(http.StatusOK, "error.html", nil)
 	})
 
+	r.GET("/comandos", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "comandos.html", nil)
+	})
+
+
 	r.Static("/static", "./static")
 	
 	r.Run()

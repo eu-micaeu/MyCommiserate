@@ -1,0 +1,32 @@
+@import url('./global.css');
+
+#body{
+  background-color: black;
+}
+
+#main{
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+#lista{
+  display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h3{
+    color: white;
+
+}
+
+h3{
+  margin: 0px;
+}
+
+
+
+@media screen and (max-device-width: 768px){
+
+}

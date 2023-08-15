@@ -94,3 +94,16 @@ document.querySelector("#excluir").addEventListener("click", async () => {
         alert("Erro ao excluir a anotação");
     }
 });
+
+document.querySelector("#telaCheia").addEventListener("click", function() {
+    let textarea = document.querySelector("#anotacao");
+    if (textarea.requestFullscreen) {
+        textarea.requestFullscreen();
+    } else if (textarea.mozRequestFullScreen) {
+        textarea.mozRequestFullScreen();
+    } else if (textarea.webkitRequestFullscreen) {
+        textarea.webkitRequestFullscreen();
+    } else if (textarea.msRequestFullscreen) { 
+        textarea.msRequestFullscreen();
+    }
+});

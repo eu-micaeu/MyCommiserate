@@ -60,6 +60,7 @@ document.querySelector("#salvar").addEventListener("click", async () => {
             },
             body: JSON.stringify({ loggedInUserID, titulo, anotacao }),
         });
+        const data = await response.json();
         showImageOverlay();
         document.querySelector("#titulo").value = "";
         document.querySelector("#anotacao").value = "";
@@ -110,7 +111,7 @@ document.querySelector("#comandos").addEventListener("click", function() {
     document.body.appendChild(overlay);
 
     let iframe = document.createElement("iframe");
-    iframe.src = "meuArquivo.html";
+    iframe.src = "comandos";
     iframe.style.width = "800px";
     iframe.style.height = "800px";
     iframe.style.position = "fixed";
@@ -124,6 +125,21 @@ document.querySelector("#comandos").addEventListener("click", function() {
         overlay.remove();
     });
 });
+
+document.querySelector("#telaCheia").addEventListener("click", function() {
+    let textarea = document.querySelector("#anotacao");
+    if (textarea.requestFullscreen) {
+        textarea.requestFullscreen();
+    } else if (textarea.mozRequestFullScreen) {
+        textarea.mozRequestFullScreen();
+    } else if (textarea.webkitRequestFullscreen) {
+        textarea.webkitRequestFullscreen();
+    } else if (textarea.msRequestFullscreen) { 
+        textarea.msRequestFullscreen();
+    }
+});
+
+
 
 
 
