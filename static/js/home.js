@@ -126,12 +126,12 @@ brena.addEventListener("input", function () {
 let inputElement = document.getElementById("anotacao");
 let buttonElement = document.getElementById("comandos");
 inputElement.addEventListener("input", function () {
-    if (inputElement.value === "!help") {
-        inputElement.value = "";
+    if (inputElement.value.includes('!help')) {
+        inputElement.value = inputElement.value.replace(/!help/g, '');
         buttonElement.click();
-        inputElement.nextElementSibling.focus();
     }
 });
+
 
 
 document.querySelector("#comandos").addEventListener("click", function() {
