@@ -123,6 +123,17 @@ brena.addEventListener("input", function () {
     brena.value = brena.value.replace(/&brena /g, "❤️");
 });
 
+let inputElement = document.getElementById("anotacao");
+let buttonElement = document.getElementById("comandos");
+inputElement.addEventListener("input", function () {
+    if (inputElement.value === "!help") {
+        inputElement.value = "";
+        buttonElement.click();
+        inputElement.nextElementSibling.focus();
+    }
+});
+
+
 document.querySelector("#comandos").addEventListener("click", function() {
     let overlay = document.createElement("div");
     overlay.style.position = "fixed";
