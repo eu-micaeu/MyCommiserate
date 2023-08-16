@@ -5,15 +5,16 @@
 }
 
 .formContainer {
-  background: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
   border-radius: 10px;
   margin: 0 auto;
   padding: 30px 40px;
+  border: 2px solid white;
 }
 
 .userContainer,
 .passwdContainer {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 25px;
   font-weight: normal;
   text-align: left;
@@ -23,13 +24,14 @@
 .userInput,
 .passwdInput {
   width: 100%;
-  color: rgb(7, 7, 7);
+  color: rgb(255, 255, 255);
   font-size: 25px;
   text-align: left;
   border-radius: 10px;
   background-color: transparent;
   border-style: groove;
   border-color: rgb(0, 0, 0);
+  border: 2px solid white;
 }
 
 .btnContainer{
@@ -48,13 +50,15 @@
 }
 
 .btn {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 25px;
   padding: 8px 35px;
   border-color: transparent;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  background-color: black;
+  border: 2px solid white;
 }
 
 .btn:hover{
