@@ -146,3 +146,15 @@ let brena = document.getElementById("anotacao");
 brena.addEventListener("input", function () {
     brena.value = brena.value.replace(/&brena /g, "❤️");
 });
+
+let textarea = document.getElementById("anotacao");
+
+textarea.addEventListener("keydown", function(event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+        let start = textarea.selectionStart;
+        let end = textarea.selectionEnd;
+        textarea.value = textarea.value.slice(0, start) + "    " + textarea.value.slice(end);
+        textarea.selectionStart = textarea.selectionEnd = start + 4;
+    }
+});
