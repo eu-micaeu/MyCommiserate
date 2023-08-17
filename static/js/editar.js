@@ -35,7 +35,7 @@ function hideImageOverlay() {
     }
 }
 
-var selectedAnotacaoID = localStorage.getItem("selectedAnotacaoID");
+var selectedAnotacaoID = localStorage.getItem("selectedAnotacaoID")
 var idAnotacao = selectedAnotacaoID;
 
 async function buscarDadosAnotacao() {
@@ -44,6 +44,10 @@ async function buscarDadosAnotacao() {
         const dados = await resposta.json();
         document.querySelector("#titulo").value = dados.titulo;
         document.querySelector("#anotacao").value = dados.anotacao;
+        const dataSemPonto = dados.data.split(".")[0];
+        document.querySelector("#dataCriada").innerHTML = dataSemPonto.replace(/T/g, " / Hora da criação: ");
+
+
     } catch (erro) {
         alert("Erro ao buscar os dados da anotação:");
     }
@@ -72,7 +76,7 @@ document.querySelector("#salvarBtn").addEventListener("click", async () => {
         showImageOverlay();
         setTimeout(function () {
             window.location.href = "/anotacoes.html";
-        }, 2000); 
+        }, 2000);
     } else {
         alert("Erro ao atualizar a anotação");
     }
@@ -95,7 +99,7 @@ document.querySelector("#excluir").addEventListener("click", async () => {
     }
 });
 
-document.querySelector("#telaCheia").addEventListener("click", function() {
+document.querySelector("#telaCheia").addEventListener("click", function () {
     let textarea = document.querySelector("#anotacao");
     if (textarea.requestFullscreen) {
         textarea.requestFullscreen();
@@ -103,7 +107,7 @@ document.querySelector("#telaCheia").addEventListener("click", function() {
         textarea.mozRequestFullScreen();
     } else if (textarea.webkitRequestFullscreen) {
         textarea.webkitRequestFullscreen();
-    } else if (textarea.msRequestFullscreen) { 
+    } else if (textarea.msRequestFullscreen) {
         textarea.msRequestFullscreen();
     }
 });
@@ -145,4 +149,76 @@ pontoRed2.addEventListener("input", function () {
 let brena = document.getElementById("anotacao");
 brena.addEventListener("input", function () {
     brena.value = brena.value.replace(/&brena /g, "❤️");
+});
+
+let inputElement = document.getElementById("anotacao");
+let buttonElement = document.getElementById("comandos");
+inputElement.addEventListener("input", function () {
+    if (inputElement.value.includes('!help')) {
+        inputElement.value = inputElement.value.replace(/!help/g, '');
+        buttonElement.click();
+    }
+});
+
+function showImageOverlay() {
+    const overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+
+    overlay.addEventListener("click", hideImageOverlay);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.id = "image-container";
+    imageContainer.style.textAlign = "center";
+
+    const image = document.createElement("img");
+    const imageURL = new URL("../static/images/salvo.png", window.location.href);
+    image.src = imageURL.href;
+    image.style.maxWidth = "80%";
+    image.style.maxHeight = "80%";
+
+    imageContainer.appendChild(image);
+    overlay.appendChild(imageContainer);
+    document.body.appendChild(overlay);
+}
+
+function hideImageOverlay() {
+    const overlay = document.getElementById("overlay");
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+document.querySelector("#comandos").addEventListener("click", function() {
+    let overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    document.body.appendChild(overlay);
+
+    let iframe = document.createElement("iframe");
+    iframe.src = "comandos";
+    iframe.style.width = "400px";
+    iframe.style.height = "400px";
+    iframe.style.position = "fixed";
+    iframe.style.top = "50%";
+    iframe.style.left = "50%";
+    iframe.style.transform = "translate(-50%, -50%)";
+    document.body.appendChild(iframe);
+
+    overlay.addEventListener("click", function() {
+        iframe.remove();
+        overlay.remove();
+    });
 });

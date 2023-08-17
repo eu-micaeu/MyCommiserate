@@ -23,17 +23,23 @@
         <div class="titleContainer">
             <button class="btn" id="notesBtn" onclick="window.location.href='/anotacoes.html'">Anotações</button>
         </div>
+        <div class="titleContainer">
+            <button class="btn" id="comandos">Comandos</button>
+        </div>
         <div class="notes">
             <input type="text" class="titleInput" id="titulo" placeholder="TÍTULO">
             <textarea class="textNote" rows="10" id="anotacao"></textarea>
+            <div class="btnContainer">
+                <p id="rotDataCriada">Data de criação da anotação:</p>
+
+                <p id="dataCriada"></p>
+            </div>
             <div class="btnContainer">
                 <button class="btn" id="salvarBtn">Salvar</button>
                 <button class="btn" id="telaCheia">Tela Cheia</button>
                 <button class="btn" id="excluir">Excluir</button>
             </div>
         </div>
-
-        
 
     </div>
 

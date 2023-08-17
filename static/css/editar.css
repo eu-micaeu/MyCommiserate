@@ -101,6 +101,12 @@ textarea{
   background-color: rgb(145, 0, 0);
 }
 
+#dataCriada, #rotDataCriada{
+  color: white;
+  margin: 0 2px;
+}
+
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;

@@ -10,14 +10,15 @@ type Anot struct {
 	ID_User  int    `json:"id_usuario"`
 	Titulo   string `json:"titulo"`
 	Anotacao string `json:"anotacao"`
+	Data     string `json:"data"`
 }
 
 func (u *Anot) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
 		var anot Anot
-		row := db.QueryRow("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_anotacao = $1", id)
-		err := row.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
+		row := db.QueryRow("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_anotacao = $1", id)
+		err := row.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao, &anot.Data)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Anotação não encontrada"})
 			return
@@ -32,7 +33,7 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 
 		var anotacoes []Anot
 
-		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao FROM anotacoes WHERE id_usuario = $1 ORDER BY id_anotacao DESC", id)
+		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_usuario = $1 ORDER BY data_hora DESC", id)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
 			return
@@ -41,39 +42,7 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 
 		for rows.Next() {
 			var anot Anot
-			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
-			if err != nil {
-				c.JSON(500, gin.H{"message": "Erro ao ler as anotações"})
-				return
-			}
-			anotacoes = append(anotacoes, anot)
-		}
-
-		if err := rows.Err(); err != nil {
-			c.JSON(404, gin.H{"message": "Anotações não encontradas"})
-			return
-		}
-
-		c.JSON(200, anotacoes)
-	}
-}
-
-func (u *Anot) GetAnnotationsByIdUserByDir(db *sql.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		id := c.Param("id")
-
-		var anotacoes []Anot
-
-		rows, err := db.Query("SELECT ano.id_anotacao, pas.id_usuario, ano.titulo, ano.anotacao FROM anotacoes ano INNER JOIN pastas pas ON pas.id_pasta = ano.id_pasta WHERE pas.id_pasta = $1", id)
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
-			return
-		}
-		defer rows.Close()
-
-		for rows.Next() {
-			var anot Anot
-			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao)
+			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao, &anot.Data)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao ler as anotações"})
 				return
