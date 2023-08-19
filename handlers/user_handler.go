@@ -68,18 +68,13 @@ func (u *User) PostUser(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao criar usuário"})
 			return
 		}
-		result, err := db.Exec("INSERT INTO usuarios (usuario, senha) VALUES ($1, $2)", newUser.Username, newUser.Password)
+		_, err := db.Exec("INSERT INTO usuarios (usuario, senha, data_adicao) VALUES ($1, $2, NOW())", newUser.Username, newUser.Password)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
 			return
 		}
-		id, err := result.LastInsertId()
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
-			return
-		}
-		newUser.ID_User = int(id)
-		c.JSON(200, gin.H{"message": "Usuário criado com sucesso!", "user": newUser})
+
+		c.JSON(200, gin.H{"message": "Usuário criado com sucesso!"})
 	}
 }
 
