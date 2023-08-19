@@ -34,7 +34,6 @@ function hideImageOverlay() {
     }
 }
 
-
 document.querySelector("#cadastrar").addEventListener("click", async () => {
     const username = document.querySelector("#usuario").value;
     const password = document.querySelector("#senha").value;
@@ -56,18 +55,10 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
     const data = await response.json();
 
     if (data.message === "Usuário criado com sucesso!") {
-        const responseUser = await fetch(`/users/usuario/${username}`);
-        const dataUser = await responseUser.json();
-
-        if (responseUser.status === 404) {
-            alert("Usuário não encontrado");
-        } else {
-            localStorage.setItem("loggedInUserID", dataUser.id);
             showImageOverlay("../static/images/cadastro.png");
             setTimeout(function () {
                 window.location.href = "/";
             }, 3500);
-        }
     } else {
         showImageOverlay("../static/images/erro.png");
     }
