@@ -94,6 +94,14 @@
   justify-content: center;
 }
 
+#limpar{
+  background-color: red;
+}
+
+#limpar:hover{
+  background-color: rgb(88, 0, 0);
+}
+
 @media screen and (max-device-width: 768px){
   .btn, .labelTitulo{
     font-size: 30px;

@@ -173,9 +173,49 @@ document.querySelector("#telaCheia").addEventListener("click", function() {
     }
 });
 
+let tituloEl = document.querySelector("#titulo");
+let anotacaoEl = document.querySelector("#anotacao");
 
+tituloEl.addEventListener("input", function () {
+    localStorage.setItem("titulo", tituloEl.value);
+});
 
+anotacaoEl.addEventListener("input", function () {
+    localStorage.setItem("anotacao", anotacaoEl.value);
+});
 
+window.addEventListener("load", function () {
+    let tituloSalvo = localStorage.getItem("titulo");
+    let anotacaoSalva = localStorage.getItem("anotacao");
+
+    if (tituloSalvo) {
+        tituloEl.value = tituloSalvo;
+    }
+
+    if (anotacaoSalva) {
+        anotacaoEl.value = anotacaoSalva;
+    }
+});
+
+let limparEl = document.querySelector("#limpar");
+
+limparEl.addEventListener("click", function () {
+    tituloEl.value = "";
+    anotacaoEl.value = "";
+    localStorage.removeItem("titulo");
+    localStorage.removeItem("anotacao");
+});
+
+document.addEventListener("fullscreenchange", function () {
+    let textarea = document.querySelector("#anotacao");
+    if (document.fullscreenElement) {
+        textarea.style.border = "none";
+        textarea.style.borderRadius = "0";
+    } else {
+        textarea.style.border = "";
+        textarea.style.borderRadius = "";
+    }
+});
 
 
 
