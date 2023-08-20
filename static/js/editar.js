@@ -234,3 +234,14 @@ document.querySelector("#comandos").addEventListener("click", function() {
         overlay.remove();
     });
 });
+
+document.addEventListener("fullscreenchange", function () {
+    let textarea = document.querySelector("#anotacao");
+    if (document.fullscreenElement) {
+        textarea.style.border = "none";
+        textarea.style.borderRadius = "0";
+    } else {
+        textarea.style.border = "";
+        textarea.style.borderRadius = "";
+    }
+});
