@@ -39,6 +39,11 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
     const password = document.querySelector("#senha").value;
     const passwordconfirmed = document.querySelector("#senhaconfirmada").value;
 
+    if (username === "" || password === "" || passwordconfirmed === "") {
+        alert("Por favor, preencha todos os campos antes de continuar.");
+        return;
+    }
+
     if (password !== passwordconfirmed) {
         alert("Confirmação da senha e senha estão diferentes.");
         return;
@@ -63,4 +68,5 @@ document.querySelector("#cadastrar").addEventListener("click", async () => {
         showImageOverlay("../static/images/erro.png");
     }
 });
+
 
