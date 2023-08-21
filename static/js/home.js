@@ -64,6 +64,8 @@ document.querySelector("#salvar").addEventListener("click", async () => {
         showImageOverlay();
         document.querySelector("#titulo").value = "";
         document.querySelector("#anotacao").value = "";
+        localStorage.removeItem("titulo");
+        localStorage.removeItem("anotacao");
     }
 });
 
