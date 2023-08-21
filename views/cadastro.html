@@ -12,36 +12,35 @@
 <title>MyCommiserate</title>
 
 <body id="body">
-
-  <div id="logoContainer">
-    <img id="imagemLogo" src="..\static\images\logo.png" alt="logo">
-    <p id="marca">MyCommiserate</p>
-  </div>
-  <br>
-  <div class="formContainer">
-    <div class="userContainer">
-      <label for="usuario">Usuário:</label> <br />
-      <input type="text" class="userInput" id="usuario" /> <br />
+    <div id="logoContainer">
+      <img id="imagemLogo" src="..\static\images\logo.png" alt="logo">
+      <p id="marca">MyCommiserate</p>
     </div>
-    <div class="passwdContainer">
-      <label for="senha">Senha:</label> <br />
-      <input type="password" class="passwdInput" id="senha" />
-      <p>*Ao menos, 8 caracteres, sendo esses, nenhum especial.</p>
+    <br>
+    <div class="formContainer">
+      <div class="userContainer">
+        <label for="usuario">Usuário:</label> <br />
+        <input type="text" class="userInput" id="usuario" /> <br />
+      </div>
+      <div class="passwdContainer">
+        <label for="senha">Senha:</label> <br />
+        <input type="password" class="passwdInput" id="senha" />
+        <p>*Ao menos, 8 caracteres, sendo esses, nenhum especial.</p>
+      </div>
+      <div class="cpasswdContainer">
+        <label for="senha">Conf. Senha:</label> <br />
+        <input type="password" class="cpasswdInput" id="senhaconfirmada" />
+      </div>
     </div>
-    <div class="cpasswdContainer">
-      <label for="senha">Conf. Senha:</label> <br />
-      <input type="password" class="cpasswdInput" id="senhaconfirmada" />
+  
+    <div class="btnContainer">
+      <button class="btn" id="cadastrar">Cadastrar</button>
     </div>
-  </div>
-
-  <div class="btnContainer">
-    <button class="btn" id="cadastrar">Cadastrar</button>
-  </div>
-
-  <div class="btnContainer">
-    <button class="btn" id="voltar" onclick="window.location.href='/inicio'">Voltar</button>
-  </div>
-
+  
+    <div class="btnContainer">
+      <button class="btn" id="voltar" onclick="window.location.href='/inicio'">Voltar</button>
+    </div>
+  
   <script defer src="..\static\js\cadastro.js"></script>
 
 </body>

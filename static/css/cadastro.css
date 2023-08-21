@@ -50,12 +50,11 @@
   border-color: transparent;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
-  border: 2px solid white;
+  border: 2px solid white; 
 }
 
 #cadastrar{
   cursor: pointer;
-  margin: 0;
 }
 
 #cadastrar:hover{
@@ -70,9 +69,10 @@
   background-color: #424242;
 }
 
-#logoContainer {
-  margin-top: 2vw;
+p{
+  font-size: 12px;
 }
+
 
 @media screen and (max-device-width: 768px) {
   .formContainer{
@@ -99,7 +99,7 @@
     font-size: 25px;
   }
 
-  #logoContainer {
-    margin-top: 14vh;
+  .btn{
+    font-size: 42px;
   }
 }

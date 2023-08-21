@@ -46,20 +46,10 @@
   cursor: pointer;
   background-color: black;
   border: 2px solid white;
-  margin: 0 auto;
 }
 
 .btn:hover{
   background-color: #424242;
-}
-
-main{
-  width: 25vw;
-  margin: auto;
-  border: 3px solid white;
-  padding: 0 40px 40px 40px;
-  border-radius: 10px;
-  margin-top: 15vh;
 }
 
 @media screen and (max-device-width: 768px) {
@@ -75,8 +65,5 @@ main{
       font-size: 35px;
     }
     
-    #logoContainer {
-      margin-top: 20vh;
-    }
 }
   

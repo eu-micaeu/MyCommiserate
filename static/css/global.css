@@ -61,8 +61,8 @@ textarea {
 @media screen and (max-device-width: 768px) {
   #imagemLogo {
     margin-top: 30px;
-    width: 18vw;
-    height: 6vh;
+    width: 15vw;
+    height: 5vh;
   }
 
   textarea {
