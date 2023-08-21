@@ -72,7 +72,7 @@ document.querySelector("#entrar").addEventListener("click", async () => {
         const data = await response.json();
         if (data && data.id) {
             localStorage.setItem("loggedInUserID", data.id);
-            window.location.href = "home.html";
+            window.location.href = "home";
         } else {
             alert("Não foi possível obter o ID do usuário.");
         }

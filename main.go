@@ -27,7 +27,7 @@ func main() {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
-	r.GET("/home.html", func(c *gin.Context) {
+	r.GET("/home", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "home.html", nil)
 	})
 
