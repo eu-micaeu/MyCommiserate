@@ -6,16 +6,17 @@ import (
 )
 
 type User struct {
-	ID_User  int    `json:"id_usuario"`
+	ID_User  int    `json:"id_user"`
 	Username string `json:"username"`
 	Password string `json:"password"`
+	Date     string `json:"date"`
 }
 
 func (u *User) GetUserByID(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id")
 		var user User
-		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE id_usuario = $1", id)
+		row := db.QueryRow("SELECT id_user, nickname_user, password_user FROM users WHERE id_user = $1", id)
 		err := row.Scan(&user.ID_User, &user.Username, &user.Password)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
@@ -29,7 +30,7 @@ func (u *User) GetUserByUsername(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		username := c.Param("username")
 		var id int
-		row := db.QueryRow("SELECT id_usuario FROM usuarios WHERE usuario = $1", username)
+		row := db.QueryRow("SELECT id_user FROM users WHERE nickname_user = $1", username)
 		err := row.Scan(&id)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário não encontrado"})
@@ -42,7 +43,7 @@ func (u *User) GetUserByUsername(db *sql.DB) gin.HandlerFunc {
 func (u *User) GetAllUsers(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var usuarios []User
-		rows, err := db.Query("SELECT id_usuario, usuario, senha FROM usuarios")
+		rows, err := db.Query("SELECT id_user, nickname_user, password_user FROM users")
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
 			return
@@ -68,7 +69,7 @@ func (u *User) PostUser(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao criar usuário"})
 			return
 		}
-		_, err := db.Exec("INSERT INTO usuarios (usuario, senha, data_adicao) VALUES ($1, $2, NOW())", newUser.Username, newUser.Password)
+		_, err := db.Exec("INSERT INTO users (nickname_user, pasword_user, create_user) VALUES ($1, $2, NOW())", newUser.Username, newUser.Password)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar usuário"})
 			return
@@ -85,8 +86,8 @@ func (u *User) PostLogin(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao fazer login"})
 			return
 		}
-		row := db.QueryRow("SELECT id_usuario, usuario, senha FROM usuarios WHERE usuario = $1 AND senha = $2", user.Username, user.Password)
-		err := row.Scan(&user.ID_User, &user.Username, &user.Password)
+		row := db.QueryRow("SELECT id_user, nickname_user, password_user, create_user FROM users WHERE nickname_user = $1 AND password_user = $2", user.Username, user.Password)
+		err := row.Scan(&user.ID_User, &user.Username, &user.Password, &user.Date)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Usuário ou senha incorretos"})
 			return

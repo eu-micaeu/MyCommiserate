@@ -8,6 +8,7 @@ import (
 )
 
 func UserRoutes(r *gin.Engine, db *sql.DB) {
+	
 	userHandler := handlers.User{}
 
 	r.GET("/users/:id", userHandler.GetUserByID(db))
