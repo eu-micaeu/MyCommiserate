@@ -3,7 +3,7 @@
 import (
 	"net/http"
 
-	"github.com/eu-micaeu/MyCommiserate/internal/database"
+	"github.com/eu-micaeu/MyCommiserate/database"
 	"github.com/eu-micaeu/MyCommiserate/middlewares"
 	"github.com/eu-micaeu/MyCommiserate/routes"
 	"github.com/gin-gonic/gin"
