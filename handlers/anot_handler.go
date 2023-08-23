@@ -17,7 +17,7 @@ func (u *Annotation) GetAnnotationByIdAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id := c.Param("id_anotacao")
 		var anot Annotation
-		row := db.QueryRow("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_anotacao = $1", id)
+		row := db.QueryRow("SELECT id_annotation, id_user, title, annotation, date FROM annotations WHERE id_annotation = $1", id)
 		err := row.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao, &anot.Data)
 		if err != nil {
 			c.JSON(404, gin.H{"message": "Anotação não encontrada"})
@@ -33,7 +33,7 @@ func (u *Annotation) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 
 		var anotacoes []Annotation
 
-		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_usuario = $1 ORDER BY data_hora DESC", id)
+		rows, err := db.Query("SELECT id_annotation, id_user, title, annotation, date FROM annotations WHERE id_user = $1 ORDER BY date DESC", id)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao obter as anotações"})
 			return
@@ -67,7 +67,7 @@ func (u *Annotation) PostAnnotation(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
 			return
 		}
-		result, err := db.Exec("INSERT INTO anotacoes (id_usuario, anotacao, titulo, data_hora) VALUES ($1, $2, $3, NOW() - INTERVAL '3 hours')", id_usuario, anot.Anotacao, anot.Titulo)
+		result, err := db.Exec("INSERT INTO annotations (id_user, annotation, title, date) VALUES ($1, $2, $3, NOW() - INTERVAL '3 hours')", id_usuario, anot.Anotacao, anot.Titulo)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao criar anotação"})
 			return
@@ -90,7 +90,7 @@ func (u *Annotation) PutAnnotation(db *sql.DB) gin.HandlerFunc {
 			c.JSON(400, gin.H{"message": "Erro ao atualizar anotação"})
 			return
 		}
-		_, err := db.Exec("UPDATE anotacoes SET titulo = $1, anotacao = $2 WHERE id_anotacao = $3", anot.Titulo, anot.Anotacao, idAnotacao)
+		_, err := db.Exec("UPDATE annotations SET title = $1, annotation = $2 WHERE id_annotation = $3", anot.Titulo, anot.Anotacao, idAnotacao)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao atualizar anotação"})
 			return
@@ -103,7 +103,7 @@ func (u *Annotation) DeleteAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idAnotacao := c.Param("id_anotacao")
 
-		_, err := db.Exec("DELETE FROM anotacoes WHERE id_anotacao = $1", idAnotacao)
+		_, err := db.Exec("DELETE FROM annotations WHERE id_annotation = $1", idAnotacao)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao excluir anotação"})
 			return
