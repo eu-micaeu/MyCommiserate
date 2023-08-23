@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type Anot struct {
+type Annotation struct {
 	ID_Anot  int    `json:"id_anotacao"`
 	ID_User  int    `json:"id_usuario"`
 	Titulo   string `json:"titulo"`
@@ -13,10 +13,10 @@ type Anot struct {
 	Data     string `json:"data"`
 }
 
-func (u *Anot) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
+func (u *Annotation) GetAnnotationByIdAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		id := c.Param("id")
-		var anot Anot
+		id := c.Param("id_anotacao")
+		var anot Annotation
 		row := db.QueryRow("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_anotacao = $1", id)
 		err := row.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao, &anot.Data)
 		if err != nil {
@@ -27,11 +27,11 @@ func (u *Anot) GetAnnotationByID(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
+func (u *Annotation) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		id := c.Param("id")
+		id := c.Param("id_usuario")
 
-		var anotacoes []Anot
+		var anotacoes []Annotation
 
 		rows, err := db.Query("SELECT id_anotacao, id_usuario, titulo, anotacao, data_hora FROM anotacoes WHERE id_usuario = $1 ORDER BY data_hora DESC", id)
 		if err != nil {
@@ -41,7 +41,7 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 		defer rows.Close()
 
 		for rows.Next() {
-			var anot Anot
+			var anot Annotation
 			err := rows.Scan(&anot.ID_Anot, &anot.ID_User, &anot.Titulo, &anot.Anotacao, &anot.Data)
 			if err != nil {
 				c.JSON(500, gin.H{"message": "Erro ao ler as anotações"})
@@ -59,32 +59,10 @@ func (u *Anot) GetAnnotationsByIdUser(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *Anot) GetAllAnnotations(db *sql.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		var anotacoes []Anot
-		rows, err := db.Query("SELECT id_anotacao, titulo, anotacao FROM anotacoes")
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
-			return
-		}
-		defer rows.Close()
-		for rows.Next() {
-			var anot Anot
-			err := rows.Scan(&anot.ID_Anot, &anot.Titulo, &anot.Anotacao)
-			if err != nil {
-				c.JSON(500, gin.H{"message": "Erro ao buscar anotações"})
-				return
-			}
-			anotacoes = append(anotacoes, anot)
-		}
-		c.JSON(200, anotacoes)
-	}
-}
-
-func (u *Anot) PostAnnotation(db *sql.DB) gin.HandlerFunc {
+func (u *Annotation) PostAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id_usuario := c.Param("id_usuario")
-		var anot Anot
+		var anot Annotation
 		if err := c.BindJSON(&anot); err != nil {
 			c.JSON(400, gin.H{"message": "Erro ao criar anotação"})
 			return
@@ -104,10 +82,10 @@ func (u *Anot) PostAnnotation(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *Anot) PutAnnotation(db *sql.DB) gin.HandlerFunc {
+func (u *Annotation) PutAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idAnotacao := c.Param("id_anotacao")
-		var anot Anot
+		var anot Annotation
 		if err := c.BindJSON(&anot); err != nil {
 			c.JSON(400, gin.H{"message": "Erro ao atualizar anotação"})
 			return
@@ -121,11 +99,10 @@ func (u *Anot) PutAnnotation(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *Anot) DeleteAnnotation(db *sql.DB) gin.HandlerFunc {
+func (u *Annotation) DeleteAnnotation(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		idAnotacao := c.Param("id_anotacao")
 
-		// Realiza a operação DELETE no banco de dados usando o ID fornecido.
 		_, err := db.Exec("DELETE FROM anotacoes WHERE id_anotacao = $1", idAnotacao)
 		if err != nil {
 			c.JSON(500, gin.H{"message": "Erro ao excluir anotação"})
