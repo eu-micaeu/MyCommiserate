@@ -4,18 +4,18 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	//"os"
+	"os"
 
 	_ "github.com/lib/pq"
 )
 
 func NewDB() (*sql.DB, error) {
 
-	dbUser := "root"
-	dbPassword := "exh4Ozgg43FQCyfTk9Frn4F3bdDll3ud"
-	dbHost := "dpg-cjb8pi840sqc73b7uhng-a.oregon-postgres.render.com"
-	dbPort := "5432"
-	dbName := "mycommiserate"
+	dbUser := os.Getenv("DB_USER")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	dbHost := os.Getenv("DB_HOST")
+	dbPort := os.Getenv("DB_PORT")
+	dbName := os.Getenv("DB_NAME")
 
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=require", dbUser, dbPassword, dbHost, dbPort, dbName)
 	db, err := sql.Open("postgres", dsn)
