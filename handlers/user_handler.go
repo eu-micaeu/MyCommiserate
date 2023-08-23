@@ -40,28 +40,6 @@ func (u *User) GetUserByUsername(db *sql.DB) gin.HandlerFunc {
 	}
 }
 
-func (u *User) GetAllUsers(db *sql.DB) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		var usuarios []User
-		rows, err := db.Query("SELECT id_user, nickname_user, password_user FROM users")
-		if err != nil {
-			c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
-			return
-		}
-		defer rows.Close()
-		for rows.Next() {
-			var user User
-			err := rows.Scan(&user.ID_User, &user.Username, &user.Password)
-			if err != nil {
-				c.JSON(500, gin.H{"message": "Erro ao buscar usuarios"})
-				return
-			}
-			usuarios = append(usuarios, user)
-		}
-		c.JSON(200, usuarios)
-	}
-}
-
 func (u *User) PostUser(db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var newUser User
